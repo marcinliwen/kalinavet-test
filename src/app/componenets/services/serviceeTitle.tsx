@@ -1,0 +1,16 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
+
+export default function ServicesTitle() {
+    const t = useTranslations('HomePage')
+
+    return (
+        <div className='grid md:grid-cols-3 border-b border-[#242424] mb-14'>
+            <h2 className='mb-14'>{t('offer_home')}</h2>
+            <p className='col-span-2 text-sm leading-8 mb-8'>{t.rich('offer_text', {
+                b: (chunk) => <b>{chunk}</b>
+            })}</p>
+        </div>
+    )
+}

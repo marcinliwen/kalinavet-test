@@ -1,0 +1,79 @@
+{
+  "Index": {
+    "title": "Cześć świecie!"
+  },
+  "LocaleSwitcher": {
+    "label": "Zmień język",
+    "locale": "{locale, select, de {German} pl {Polski} other {Unknown}}"
+  },
+  "Common": {
+    "home-title": "Kalina Vet - Gabinet weterynaryjny",
+    "h1": "Gabinet weterynaryjny",
+    "termin": "Terminy",
+    "new-address": "Nowy adres",
+    "monday-to-friday": "Pon - Pt",
+    "open-days-title": "Jesteśmy otwarci",
+    "open-days": "Pniedziałek - Piątek",
+    "only-on-call": "Wizyty umawiane wyłacznie telefonicznie.",
+    "navigate": "Nawiguj",
+    "phone_numer": "+48 506 109 445",
+    "mail": "kontakt@kalinavet.pl",
+    "address_title": "Adres",
+    "office": "Gabinet Weterynaryjny w Zasiekach",
+    "services": "Usługi",
+    "about_us": "O nas",
+    "slogan": "Chcemy aby Gabinet Weterynaryjny w Zasiekach był miejscem, w którym opiekun i jego pupil znajdą potrzebną pomoc i wsparcie."
+  },
+  "Footer": {
+    "contakt": "Kontakt",
+    "nav": "Nawigacja"
+  },
+  "MenuLinks": {
+    "services": "Usługi",
+    "about": "O nas",
+    "blog": "Porady",
+    "contact": "Kontakt",
+    "change_language": "Zmień język",
+    "faq": "Pytania"
+  },
+  "HomePage": {
+    "welcome-text": "Witamy w gabinecie weterynaryjnym dla małych zwierząt w Zasiekach.",
+    "welcome-subtitle": "Zajmiemy się Twoim pupilem kompleksowo i zaoferujemy szeroki wachlarz usług.",
+    "title": "KalinaVet",
+    "cta": "Umów wizytę",
+    "offer_home": "Sprawdź jakie usługi wykonujemy",
+    "offer_text": "W naszym gabinecie do każdego pacjenta podchodzimy indywidualnie i kompleksowo a przedewszystkim z troską. Aby zapewnić Państwu i pacjentom maksymalny komfort, <b>wizyty umawiane są wyłącznie telefonicznie</b>. Leki przyjmowane regularnie mogą Państwo zamówić telefonicznie i odebrać w dowolnym momencie w zaprzyjaźnionej aptece obok.",
+    "prevention": "Profilaktyka",
+    "surgery": "Chirurgia",
+    "medicines": "Lekarstwa",
+    "diagnostics": "Diagnostyka",
+    "about-as": "Poznaj nas",
+    "experience-years": "lata doświadczenia",
+    "operations-success": "udanych operacji",
+    "happy-pets": "szcześliwych zwierząt",
+    "about_title": "jest otwarty juz ponad 10 lat. Zajmujemy się głównie małymi zwierzętami domowymi. Odwiedzają nas psy i koty a czasem króliki i świnki morskie.",
+    "bio-1": "jest lekarzem weterynarii i właścicielką gabinetu weterynaryjnego w Zasiekach. Ukończyła studia magisterskie na Wydziale Weterynarii na Uniwersytecie Warmińsko Mzurskim. Praktykowała na Uniwersytecie w Liege w Belgii. Ukończyła specjalizację z chirurgii małych zwierząt i liczne kursy dokształcające z zakresu medycyny weterynaryjnej.",
+    "bio-2": "Stale podnosi swoje kwalifikacje, aby jak najlepiej pomagać Waszym czworonogom.",
+    "lotof": "mnóstwo",
+    "more": "dowiedz się więcej",
+    "faq_title": "Najczęściej zadawane pytania",
+    "more-faq": "więcej pytań"
+  },
+  "Newsletter": {
+    "save": "Zapisz",
+    "title": "Zapisz się do Newslettera",
+    "agreement": "Wysyłając formularz akceptujesz Politykę Prywatnośći"
+  },
+  "News": {
+    "news": "Aktualności",
+    "news_subtitle": "Bądź na bierząco z ważnymi informacjami dotyczącymi funkcionowania gabinetu."
+  },
+  "FAQ":{
+    "more_questions": "mam więcej pytań"
+  },
+  "Porady":{
+    "title": "Dzielimy się wiedzą i doświadczeniem",
+    "subtitle":"Chcemy być z Wami w kontakcie i mówić o ważnych sprawach dotyczących zdrowia Waszych pupili. <br></br>Znajdziecie tu przydatne informacje i aktualności z działania Gabinetu",
+    "more_questions":"Na wiele pytań odpowiadamy w sekcji: "
+  }
+}
