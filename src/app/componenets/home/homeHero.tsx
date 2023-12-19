@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import Link from "next/link"
+import { Link } from "@/navigation";
 import { useTranslations } from 'next-intl';
 import Pin from "@/app/icons/Pin";
 import CalendarIcon from "@/app/icons/CalendarIcon";

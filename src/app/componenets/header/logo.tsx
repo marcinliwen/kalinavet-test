@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link';
+import { Link } from "@/navigation";
 import { usePathname } from 'next/navigation'
 import { useLocale } from 'next-intl';
 import React from 'react';
@@ -20,7 +20,7 @@ export default function Logo() {
         </div>
       ) : (
         <div className=" w-[74px] md:w-[120px] relative grid items-center">
-          <Link href='/' locale={locale} >
+          <Link href='/'  >
             <LogoRed />
           </Link>
         </div>

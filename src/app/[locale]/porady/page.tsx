@@ -32,7 +32,7 @@ async function getPosts(){
     return data.data.posts;
 }
 
-export default async () => {
+export default async function Blog(){
 
     const posts = await getPosts();
     return(

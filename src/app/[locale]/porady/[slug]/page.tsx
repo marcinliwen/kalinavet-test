@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from "@/navigation";
 import PostNav from '../../../componenets/postnav';
 import { RichText } from "@graphcms/rich-text-react-renderer"
 
@@ -53,7 +53,7 @@ async function getPost(slug: any) {
   return data.data.post
 }
 
-export default async ({ params }: any) => {
+export default async function Post({ params }: any){
 
   const postData = await getPost(params.slug)
   console.log('postData', postData);

@@ -2,9 +2,8 @@
 
 import clsx from 'clsx';
 import {useLocale, useTranslations} from 'next-intl';
-import {usePathname, useRouter} from 'next-intl/client';
+import {usePathname, useRouter} from '@/navigation';
 import {ChangeEvent, useTransition} from 'react';
-import Link from 'next/link';
 
 export default function LocaleSwitcher() {
   const t = useTranslations('LocaleSwitcher');

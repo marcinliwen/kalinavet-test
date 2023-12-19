@@ -6,7 +6,7 @@ import AboutUs from "@/../public/aboutUs.png"
 import AboutBio from "@/app/componenets/about/aboutBio"
 import GabiinetFront from '@/../public/gabinet-front.png'
 import LinkMore from "@/app/componenets/linkMore"
-import Link from "next/link";
+import { Link } from "@/navigation";
 import Slogan from "@/app/componenets/slogan"
 import { Metadata } from "next"
 

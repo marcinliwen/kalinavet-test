@@ -48,7 +48,7 @@ export default async function HomeServices(){
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-12 md:gap-8 md:gap-y-16'>
             {data && data.map((service:any) =>{
                 return(
-                   <ServicesCard service={service}/>
+                   <ServicesCard service={service} key={service.title}/>
                 )
             })}
         </div>

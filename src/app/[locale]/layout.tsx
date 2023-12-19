@@ -3,16 +3,13 @@ import { montserrat } from '../ui/fonts'
 import type { Metadata } from 'next'
 import Header from '../componenets/header'
 
-import {NextIntlClientProvider} from 'next-intl';
+import {NextIntlClientProvider, useMessages} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {useLocale} from 'next-intl';
 import Footer from '../componenets/footer';
 
 const locales = ['pl', 'de'];
- 
-export function generateStaticParams() {
-  return [{locale: 'pl'}, {locale: 'de'}];
-}
+
 
 export const metadata: Metadata = {
   title:{ 
@@ -21,20 +18,13 @@ export const metadata: Metadata = {
   description: 'Gabinet Weterynaryjny małych zwierząt w Zasiekach ',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children, params:{locale}
 }: {
   children: React.ReactNode, params: any
 }) {
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
-  const isValidLocale = locales.some((cur) => cur === locale);
-  if (!isValidLocale) notFound();
-
+  if (!locales.includes(locale as any)) notFound();
+  const messages = useMessages();
   return (
     <html lang={locale}>
       <body className={`${montserrat.className} antialiased`}>
@@ -42,7 +32,7 @@ export default async function RootLayout({
         <Header />
         {children}
         <Footer />
-        </NextIntlClientProvider>
+       </NextIntlClientProvider>
       </body>
     </html>
   )
