@@ -1,5 +1,4 @@
 import KontaktInfo from "@/app/componenets/kontakt/kontaktInfo"
-import Head from "next/head";
 import SecondHero from "@/app/componenets/secondHero";
 import { Metadata } from "next";
 
@@ -11,10 +10,6 @@ export const metadata: Metadata = {
 export default function Kontakt(){
     return(
         <>
-        <Head>
-                <title>{"Kalina Vet - Kontakt"}</title>
-                <meta name="description" content="Informacje kontaktowe" />
-            </Head>
             <SecondHero isCTA={false} title={"contact"} />
          <section className='py-20'>
                 <div className="container">

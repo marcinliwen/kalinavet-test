@@ -1,17 +1,24 @@
 import createMiddleware from 'next-intl/middleware';
-import {locales, localePrefix} from './navigation';
+import { locales, localePrefix, pathnames } from './navigation';
 
 export default createMiddleware({
-  // A list of all locales that are supported
-  //locales: ['pl', 'de'],
- 
   // Used when no locale matches
   defaultLocale: 'pl',
   localePrefix,
-  locales
+  locales,
+  pathnames
 });
- 
+
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(de|pl)/:path*']
+  matcher: [
+    '/',
+    '/(de|pl)/:path*',
+    // Match all pathnames except for
+    // - … if they start with `/api`, `/_next` or `/_vercel`
+    // - … the ones containing a dot (e.g. `favicon.ico`)
+    '/((?!api|_next|_vercel|.*\\..*).*)',
+    // However, match all pathnames within `/users`, optionally with a locale prefix
+    '/([\\w-]+)?/users/(.+)'
+  ]
 };
