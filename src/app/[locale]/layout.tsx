@@ -10,7 +10,6 @@ import Footer from '../componenets/footer';
 
 const locales = ['pl', 'de'];
 
-
 export const metadata: Metadata = {
   title:{ 
     template: '%s | Kalina Vet',
@@ -23,6 +22,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode, params: any
 }) {
+
+  
   if (!locales.includes(locale as any)) notFound();
   const messages = useMessages();
   return (
