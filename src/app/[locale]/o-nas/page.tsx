@@ -101,7 +101,7 @@ export default function Onas() {
                     <div className="grid md:grid-cols-3 gap-8 relative">
                         {[1, 2, 3, 4, 5, 6].map(item => {
                             return (
-                                <article className="p-4 bg-gray-100 rounded-xl min-h-[450px]">
+                                <article key={item} className="p-4 bg-gray-100 rounded-xl min-h-[450px]">
 
                                 </article>
                             )
