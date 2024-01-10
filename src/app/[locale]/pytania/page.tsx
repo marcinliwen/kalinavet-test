@@ -51,7 +51,7 @@ export default async function Faq(props:any) {
                 <div className="container">
                     <FaqTitle />
                     <div className='grid md:grid-cols-3 gap-14'>
-                        <div className='mb-10'>
+                        <div className='mb-10 order-1 md:-order-1'>
                             <div className='flex gap-3 sticky top-5'>
                                 <Image src={FaqDog} width={515} height={643} alt="dog" />
 
@@ -59,27 +59,11 @@ export default async function Faq(props:any) {
                         </div>
                         <div className='accordion md:col-span-2'>
                             {questions.map((item: Faq, index: number) => (
-                                <>
-                                    <input type="radio" id={`acc_${index}`} name="acc1" />
-                                    <div className="accordion-item border-b-[0.5px]  last-of-type:border-0">
-                                        <label
-                                            htmlFor={`acc_${index}`}
-                                            className="accordion-title cursor-pointer flex items-center bg-blue-100 px-6 py-7"
-                                        >
-                                            <span className="flex-1">{item.question}</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="ml-auto acccordion-icon h-6 w-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                            </svg>
-                                        </label>
-                                        <label
-                                            htmlFor="acc_close"
-                                            className="accordion-close h-[80px] cursor-pointer"
-                                        />
-                                        <div className="accordion-content px-6">
-                                            <p className="small">{item.answer}</p>
-                                        </div>
-                                    </div>
-                                </>
+                                <div className="mb-8">
+                                    <h3 className="font-bold mb-2">{item.question}</h3>
+                                    <p>{item.answer}</p>
+                                </div>
+                                
                             ))}
 
                             <input id="acc_close" type="radio" name="acc1" />
@@ -89,7 +73,7 @@ export default async function Faq(props:any) {
 
                     </div>
                 </div>
-            </section >s
+            </section >
         </>
     )
 }

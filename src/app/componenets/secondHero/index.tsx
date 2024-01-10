@@ -33,7 +33,7 @@ const SecondHero = (props: Props) => {
                             </div>
                         }
                     </div>
-                    <div className="ml-auto flex pt-2">
+                    <div className="ml-auto flex pt-4 max-w-1/2">
                         <Image
                             alt="hero"
                             src={DogHero}

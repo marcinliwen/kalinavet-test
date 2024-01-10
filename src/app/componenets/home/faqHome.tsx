@@ -43,7 +43,7 @@ export default async function FaqSectoin() {
                 <div className="container">
                     <FaqTitle />
                     <div className='grid md:grid-cols-3 gap-14'>
-                        <div className='mb-10'>
+                        <div className='mb-10 order-1 md:-order-1'>
                             <div className='flex gap-3 sticky top-5'>
                                 <Image src={FaqDog} width={515} height={643} alt="dog" />
 

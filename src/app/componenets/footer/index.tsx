@@ -54,12 +54,12 @@ export default function Footer() {
                             kontakt@kalinavet.com
                         </p>
                     </div>
-                    <nav className="w-1/2 md:w-1/4">
+                    <nav className="w-1/2 md:w-1/4 text-right md:text-left">
                         <span className="text-white font-semibold text-xs  uppercase mb-4">{f('nav')}</span>
                         <ul className="flex flex-col">
                             {mainNav.map((item, index) =>
                                 <li key={index} className="block ">
-                                    <Link href={item.link} className="leading-7 block text-white text-sm font-light py-3 lg:py-0">
+                                    <Link href={item.link} className="leading-7 block text-white text-sm font-light py-2 lg:py-0">
                                         {item.name}
                                     </Link>
                                 </li>
