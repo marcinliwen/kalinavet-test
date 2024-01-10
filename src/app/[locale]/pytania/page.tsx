@@ -59,7 +59,7 @@ export default async function Faq(props:any) {
                         </div>
                         <div className='accordion md:col-span-2'>
                             {questions.map((item: Faq, index: number) => (
-                                <div className="mb-8">
+                                <div key={item.id} className="mb-8">
                                     <h3 className="font-bold mb-2">{item.question}</h3>
                                     <p>{item.answer}</p>
                                 </div>
