@@ -1,6 +1,7 @@
 import {useLocale} from 'next-intl';
 import Image from 'next/image';
 import { RichText } from '@graphcms/rich-text-react-renderer';
+import AboutLink from './aboutLink';
 
 async function getAbout(locale: string) {
     const {data} = await fetch('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cldqjnpm22vwp01uldwwx5ejk/master', {
@@ -49,6 +50,7 @@ export default async function HomeAbout(){
             renderers={{
                 p:({children})=><p className='mb-8'>{children}</p>
             }}/>
+            <AboutLink />
             </div>
             <div>
               <Image

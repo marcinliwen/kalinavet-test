@@ -13,7 +13,7 @@ export const pathnames = {
   // specify each external path per locale.
   '/o-nas': {
     pl: '/o-nas',
-    de: '/ueber-uns'
+    de: '/uber-uns'
   },
   '/porady': {
     pl: '/porady',
