@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 }
 
 async function getPost(slug: any) {
+  
   const response = await fetch('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cldqjnpm22vwp01uldwwx5ejk/master', {
     method: 'POST',
     headers: {
