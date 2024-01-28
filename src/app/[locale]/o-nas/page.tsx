@@ -45,7 +45,7 @@ export default function Onas() {
                     </div>
                 </div>
             </section>
-            <section className="py-12  mb-16 ">
+            {/* <section className="py-12  mb-16 ">
                 <div className="container relative z-10">
                     <h2 className='mb-14'>{"Zespół"}</h2>
                     <div className="grid md:grid-cols-3 gap-8 relative">
@@ -80,12 +80,6 @@ export default function Onas() {
                                 <p className="text-sm">Manager</p>
                             </div>
                         </article>
-                        {/*  <div className="md:col-span-2">
-                        
-                        <AboutBio />
-                        </div> */}
-
-
                         <div>
 
                         </div>
@@ -110,7 +104,7 @@ export default function Onas() {
                     </div>
 
                 </div>
-            </section>
+            </section> */}
             <Slogan />
         </>
     )
