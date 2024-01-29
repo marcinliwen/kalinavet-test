@@ -69,7 +69,14 @@
     "news_subtitle": "Bądź na bierząco z ważnymi informacjami dotyczącymi funkcionowania gabinetu."
   },
   "FAQ":{
-    "more_questions": "mam więcej pytań"
+    "more_questions": "mam więcej pytań",
+    "name": "Imię",
+    "question":"Zadaj pytanie",
+    "email": "E-mail",
+    "send" :"Wyślij wiadomość",
+    "form_title":"Nie znalazłeś odpowiedzi na swoje pytanie?",
+    "form_subtitle":"Napisz do nas, odpowiemy najszybiej jak to możliwe!",
+    "form_error_message": "Uzupełnij lub popraw brakujące pola"
   },
   "Porady":{
     "title": "Dzielimy się wiedzą i doświadczeniem",

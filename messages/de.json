@@ -69,7 +69,14 @@
     "news_subtitle": "Bleiben Sie auf dem Laufenden mit wichtigen Informationen über die Funktionsweise der Kleintierpraxis."
   },
   "FAQ":{
-    "more_questions": "Ich habe mehr Fragen"
+    "more_questions": "Ich habe mehr Fragen",
+    "name": "Name",
+    "question":"Stellen Sie eine Frage",
+    "email": "E-mail",
+    "send" :"Senden",
+    "form_title":"Haben Sie die Antwort auf Ihre Frage nicht gefunden?",
+    "form_subtitle":"Schreiben Sie uns, wir antworten so schnell wie möglich!",
+    "form_error_message":"Vervollständigen oder korrigieren Sie die fehlenden Felder"
   },
   "Porady":{
     "title": "Wir teilen Wissen und Erfahrung",

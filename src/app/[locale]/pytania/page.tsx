@@ -6,6 +6,7 @@ import FaqDog from "@/../public/dog_blue.png";
 import { GetAllQuestions } from "@/app/services/actions";
 import FaqForm from "@/app/componenets/questions/FaqForm";
 import DogForm from "@/../public/dog-form.png"
+import FaqFormtitle from "@/app/componenets/questions/FaqFormTitle";
 
 
 export const metadata: Metadata = {
@@ -43,14 +44,12 @@ export default async function Faq(props: any) {
             </section >
             <section className="py-20 bg-blue-100">
                 <div className="container">
-                <div className='grid md:grid-cols-3 gap-14 mb-14'>
-                    <div><h2 className='mb-14'>{'Nie znalazłeś odpowiedzi na swoje pytanie?'}</h2>
-            <p className='col-span-2 text-sm leading-8 mb-8'>{'Napisz do nas, odpowiemy najszybiej jak to możliwe!'}</p></div>
-            <FaqForm />
-            <Image src={DogForm} width={515} height={643} alt="dog" />
+                    <div className='grid md:grid-cols-3 gap-14 mb-14'>
+                      <FaqFormtitle />
+                        <FaqForm/>
+                        <Image src={DogForm} width={515} height={643} alt="dog" />
+                    </div>
 
-        </div>
-                    
                 </div>
             </section>
         </>

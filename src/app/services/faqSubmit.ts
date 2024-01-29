@@ -1,22 +1,42 @@
 'use server';
 import { GraphQLClient } from "graphql-request";
+import { revalidatePath } from "next/cache";
+import {z} from "zod";
+import {getTranslations} from 'next-intl/server';
 
 export type State = {
     errors?: {
-        question?: string,
-        email?: string,
+        name?:string[],
+        question?: string[],
+        email?: string[],
     },
     message?: string | null,
     success?: string | null
 }
 
-export async function PostQuestion(prevState: State, formData: FormData) {
-
-
+const FormSchema = z.object({
+    name: z.string({invalid_type_error: "Name must be a string"}),
+    question: z.string().min(10),
+    email: z.string().email({ message: "Invalid email address" }),
+})
+export async function postQuestion(prevState: State, formData: FormData) {
+    const t = await getTranslations('FAQ')
+    const validatefields = FormSchema.safeParse({
+        name: formData.get('name'),
+        question: formData.get('question'),
+        email: formData.get('email'),
+    })
+    if (!validatefields.success) {
+        return {
+          errors: validatefields.error.flatten().fieldErrors,
+          message: t('form_error_message')
+        }
+      }
+    const {name, question, email} = validatefields.data;
     const variables = {
-        "name": formData.get('name'),
-        "question": formData.get('question'),
-        "email": formData.get('email')
+        "name": name,
+        "question": question,
+        "email": email,
     }
     console.log('variables', variables)
     const hygraph = new GraphQLClient(process.env.HYGRAPH_ENDPOINT, {
@@ -38,10 +58,9 @@ export async function PostQuestion(prevState: State, formData: FormData) {
       }`,
             variables
         );
-        return {
-            success: 'Wysłano wiadomość, dziękujemy'
-        }
-    } catch ({ message }: any) {
-        console.log('message', message)
-    }
+        return{success: "Wiadomość została wysłana, dziękujemy!"}
+    } catch (error) {
+        return{message: "Server error!"}
+    }    
+    
 };
