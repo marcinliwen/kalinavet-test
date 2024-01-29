@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import FaqDog from "@/../public/dog_blue.png";
 import { GetAllQuestions } from "@/app/services/actions";
 import FaqForm from "@/app/componenets/questions/FaqForm";
-
+import DogForm from "@/../public/dog-form.png"
 
 
 export const metadata: Metadata = {
@@ -47,6 +47,8 @@ export default async function Faq(props: any) {
                     <div><h2 className='mb-14'>{'Nie znalazłeś odpowiedzi na swoje pytanie?'}</h2>
             <p className='col-span-2 text-sm leading-8 mb-8'>{'Napisz do nas, odpowiemy najszybiej jak to możliwe!'}</p></div>
             <FaqForm />
+            <Image src={DogForm} width={515} height={643} alt="dog" />
+
         </div>
                     
                 </div>
