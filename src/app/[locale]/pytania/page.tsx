@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 export default async function Faq(props: any) {
     const { locale } = props.params;
     const hygraphData = await GetAllQuestions(locale)
+    console.log('hygraphData', hygraphData)
     return (
         <>
             <SecondHero isCTA={false} title={'faq'} />
@@ -27,7 +28,6 @@ export default async function Faq(props: any) {
                         <div className='mb-10 order-1 md:-order-1'>
                             <div className='flex gap-3 sticky top-5'>
                                 <Image src={FaqDog} width={515} height={643} alt="dog" />
-
                             </div>
                         </div>
                         <div className='md:col-span-2'>
@@ -36,7 +36,6 @@ export default async function Faq(props: any) {
                                     <h3 className="font-bold mb-2">{item.question}</h3>
                                     <p>{item.answer}</p>
                                 </div>
-
                             ))}
                         </div>
                     </div>
