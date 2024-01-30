@@ -1,6 +1,5 @@
 'use server';
 import { GraphQLClient } from "graphql-request";
-import { revalidatePath } from "next/cache";
 import {z} from "zod";
 import {getTranslations} from 'next-intl/server';
 
