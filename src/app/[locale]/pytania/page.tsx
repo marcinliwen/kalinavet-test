@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 export default async function Faq(props: any) {
     const { locale } = props.params;
     const hygraphData = await GetAllQuestions(locale)
-    console.log('hygraphData', hygraphData)
     return (
         <>
             <SecondHero isCTA={false} title={'faq'} />
