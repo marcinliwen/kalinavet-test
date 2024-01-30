@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import {useLocale, useTranslations} from 'next-intl';
 import {usePathname, useRouter} from '@/navigation';
 import {ChangeEvent, useTransition} from 'react';
@@ -50,7 +49,7 @@ export default function LocaleSwitcher() {
         {['pl', 'de'].map((locale_item) => {
           return (
             <li key={locale_item} className="">
-              <label className={`block w-10 px-2 py-0 relative z-10 uppercase text-xs  font-medium border-2 border-ui-red text-center
+              <label className={`block w-14 lg:w-10 px-2 py-2 lg:py-0 relative z-10 uppercase text-xs  font-medium border-2 border-ui-red text-center
               ${locale_item === locale ? 'text-white bg-ui-red' : 'text-ui-red'}`}>
               <input 
                 type='radio' 
