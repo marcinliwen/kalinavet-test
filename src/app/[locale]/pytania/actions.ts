@@ -1,9 +1,18 @@
+'use server';
+
 import { GraphQLClient } from 'graphql-request'
-import { FaqList } from "./definitions";
-import { GET_QUESTIONS } from "../graphql/GetQuestions";
+import { FaqList } from "../../services/definitions";
 
 const hygraph = new GraphQLClient(process.env.HYGRAPH_ENDPOINT);
+import { gql } from "graphql-request"
 
+const GET_QUESTIONS = gql`
+      query GetQuestions($locale: Locale!) {
+        faqs(locales: [$locale]) {
+            answer
+            question
+          }
+      }`
 export async function GetAllQuestions(locale: string) {
     const variables = { locale: locale }
     try {
