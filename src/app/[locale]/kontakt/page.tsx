@@ -1,7 +1,6 @@
 import KontaktInfo from "@/app/componenets/kontakt/kontaktInfo"
 import SecondHero from "@/app/componenets/secondHero";
 import { Metadata } from "next";
-
 export const metadata: Metadata = {
     title: 'Kontakt',
     description: 'Informacje kontaktowe i adresowe'

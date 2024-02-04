@@ -74,6 +74,8 @@
     "question":"Stellen Sie eine Frage",
     "email": "E-mail",
     "send" :"Senden",
+    "email_success": "Die Nachricht wurde gesendet. Danke!",
+    "email_failed": "Nachricht konnte nicht gesendet werden.",
     "form_title":"Haben Sie die Antwort auf Ihre Frage nicht gefunden?",
     "form_subtitle":"Schreiben Sie uns, wir antworten so schnell wie möglich!",
     "form_error_message":"Vervollständigen oder korrigieren Sie die fehlenden Felder"

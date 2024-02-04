@@ -74,6 +74,8 @@
     "question":"Zadaj pytanie",
     "email": "E-mail",
     "send" :"Wyślij wiadomość",
+    "email_success": "Wiadomość została wysłana, dziękujemy!",
+    "email_failed": "Nie udało się wysłać wiadomości",
     "form_title":"Nie znalazłeś odpowiedzi na swoje pytanie?",
     "form_subtitle":"Napisz do nas, odpowiemy najszybiej jak to możliwe!",
     "form_error_message": "Uzupełnij lub popraw brakujące pola"

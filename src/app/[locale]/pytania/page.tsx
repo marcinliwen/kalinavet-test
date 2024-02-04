@@ -1,3 +1,4 @@
+
 import SecondHero from "@/app/componenets/secondHero";
 import Image from "next/image";
 import FaqTitle from "@/app/componenets/home/faqTitle";
@@ -7,7 +8,8 @@ import { GetAllQuestions } from "@/app/[locale]/pytania/actions";
 import FaqForm from "@/app/componenets/questions/FaqForm";
 import DogForm from "@/../public/dog-form.png"
 import FaqFormtitle from "@/app/componenets/questions/FaqFormTitle";
-
+import { sendEmail } from "@/app/[locale]/pytania/actions";
+import Sendemail from "@/app/componenets/questions/SendEmail";
 
 export const metadata: Metadata = {
     title: 'Pytania',
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
 export default async function Faq(props: any) {
     const { locale } = props.params;
     const hygraphData = await GetAllQuestions(locale)
+
+   
     return (
         <>
             <SecondHero isCTA={false} title={'faq'} />
@@ -42,12 +46,12 @@ export default async function Faq(props: any) {
             </section >
             <section className="py-20 bg-blue-100">
                 <div className="container">
+                
                     <div className='grid md:grid-cols-3 gap-14 mb-14'>
                       <FaqFormtitle />
                         <FaqForm/>
                         <Image src={DogForm} width={515} height={643} alt="dog" />
                     </div>
-
                 </div>
             </section>
         </>
