@@ -8,8 +8,6 @@ import { GetAllQuestions } from "@/app/[locale]/pytania/actions";
 import FaqForm from "@/app/componenets/questions/FaqForm";
 import DogForm from "@/../public/dog-form.png"
 import FaqFormtitle from "@/app/componenets/questions/FaqFormTitle";
-import { sendEmail } from "@/app/[locale]/pytania/actions";
-import Sendemail from "@/app/componenets/questions/SendEmail";
 
 export const metadata: Metadata = {
     title: 'Pytania',

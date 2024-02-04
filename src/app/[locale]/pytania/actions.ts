@@ -5,6 +5,7 @@ import { FaqList } from "../../services/definitions";
 import { postclient } from '@/../postmark';
 import {getTranslations} from 'next-intl/server';
 import { z } from 'zod';
+
 const hygraph = new GraphQLClient(process.env.HYGRAPH_ENDPOINT);
 import { gql } from "graphql-request"
 
