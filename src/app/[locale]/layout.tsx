@@ -15,13 +15,6 @@ export const metadata: Metadata = {
     template: '%s | Kalina Vet',
     default : 'Home | Kalina Vet'},
   description: 'Gabinet Weterynaryjny małych zwierząt w Zasiekach',
-  icons:{
-    other:{
-      rel: 'mask-icon',
-      url: 'icons/safari-pinned-tab.svg',
-      color: "#e22a18"
-    }
-  }
 }
 
 export default function RootLayout({
