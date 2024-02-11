@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${montserrat.className} antialiased grid grid-rows-[auto_1fr_auto] min-h-screen`}>
+        
       <NextIntlClientProvider locale={locale} messages={messages}>
         <Header />
         {children}
