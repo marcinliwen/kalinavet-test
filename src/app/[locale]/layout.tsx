@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title:{ 
     template: '%s | Kalina Vet',
     default : 'Home | Kalina Vet'},
-  description: 'Gabinet Weterynaryjny małych zwierząt w Zasiekach ',
+  description: 'Gabinet Weterynaryjny małych zwierząt w Zasiekach',
 }
 
 export default function RootLayout({
