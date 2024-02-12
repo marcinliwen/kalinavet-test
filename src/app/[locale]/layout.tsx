@@ -46,7 +46,10 @@ const localBussiness =
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Kalina Adamkiweicz | Gabinet Weterynaryjny",
-  "image": "",
+  "image": [
+    "https://www.kalinavet.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgabinet-front.182c3e95.png&w=3840&q=75",
+    "https://www.kalinavet.com/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2FQACXa1M3TEKIGW5F0XST&w=1080&q=75"
+  ],
   "@id": "",
   url: "https://kalinavet.com",
   priceRange:"€zł",
