@@ -49,6 +49,7 @@ const localBussiness =
   "image": "",
   "@id": "",
   url: "https://kalinavet.com",
+  priceRange:"€zł€",
   telephone: "+48506109445",
   address: {
     "@type": "PostalAddress",
