@@ -40,6 +40,46 @@ const jsonLd = {
 		addressCountry: "Poland"
 	},
 }
+
+const localBussiness =
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Kalina Adamkiweicz | Gabinet Weterynaryjny",
+  "image": "",
+  "@id": "",
+  url: "https://kalinavet.com",
+  telephone: "+48506109445",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Zasieki 75",
+    addressLocality: "Zasieki",
+    postalCode: "68-343",
+    addressCountry: "Poland"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 51.753250876557246,
+    longitude: 14.668577915343366
+  },
+  openingHoursSpecification: [{
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Monday",
+    opens: "09:30",
+    closes: "13:30"
+  },{
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Wednesday",
+    opens: "09:30",
+    closes: "13:30"
+  },{
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Friday",
+    opens: "09:30",
+    closes: "13:30"
+  }] 
+}
+
 export default function RootLayout({
   children, params: { locale }
 }: {
@@ -55,6 +95,10 @@ export default function RootLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+       <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBussiness) }}
       />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
