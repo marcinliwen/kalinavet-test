@@ -24,14 +24,21 @@ const jsonLd = {
   name: "Kalina Adamkiewicz | Gabinet Weterynaryjny",
   alternateName: "Kalina Vet",
   url: "https://kalinavet.com",
-  "logo": "",
+  logo: "",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+48506109445",
     contactType: "reservations",
     areaServed: "PL",
     availableLanguage: ["German", "Polish"]
-  }
+  },
+  address: {
+		"@type": "PostalAddress",
+	  streetAddress: "Zasieki 75",
+		addressLocality: "Zasieki",
+		addressRegion: "Lubuskie",
+		addressCountry: "Poland"
+	},
 }
 export default function RootLayout({
   children, params: { locale }
