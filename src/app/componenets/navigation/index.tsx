@@ -38,13 +38,15 @@ export default function Navigation({ onClick }: { onClick: () => void; }) {
 
     return (
         <nav className=" mx-auto lg:mr-auto lg:ml-16 mb-14 lg:mb-0">
-            <ul className="flex flex-col lg:flex-row gap-8 justify-center items-center h-full">
+            <ul itemScope itemType="https://schema.org/BreadcrumbList" className="flex flex-col lg:flex-row gap-8 justify-center items-center h-full">
                 {mainNav.map((item, index) => {
                     
-                    return (<li key={index} className={`block lg:inline-block lg:mt-0  last:mr-0 ${item.link === '/' && "lg:hidden" }`} onClick={() => { onClick() }}>
-                        <Link href={item.link} className={`${pathname === item.link ? 'active' : ''} nav-active relative text-black`}>
-                            {item.name}
+                    return (<li itemProp="itemListElement" itemScope
+                    itemType="https://schema.org/ListItem" key={index} className={`block lg:inline-block lg:mt-0  last:mr-0 ${item.link === '/' && "lg:hidden" }`} onClick={() => { onClick() }}>
+                        <Link itemProp="item" href={item.link} className={`${pathname === item.link ? 'active' : ''} nav-active relative text-black`}>
+                            <span itemProp="name">{item.name}</span>
                         </Link>
+                        <meta itemProp="position" content={String(index+1)} />
                     </li>)
                 }
                 )}
