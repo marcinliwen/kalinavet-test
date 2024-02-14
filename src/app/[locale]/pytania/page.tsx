@@ -9,6 +9,7 @@ import FaqForm from "@/app/componenets/questions/FaqForm";
 import DogForm from "@/../public/dog-form.png"
 import FaqFormtitle from "@/app/componenets/questions/FaqFormTitle";
 
+
 export const metadata: Metadata = {
     title: 'Pytania',
     description: 'Najczęściej zadawane pytania'
@@ -18,9 +19,28 @@ export default async function Faq(props: any) {
     const { locale } = props.params;
     const hygraphData = await GetAllQuestions(locale)
 
+    const jsonLdQA = {
+        "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: hygraphData?.map((item)=>{
+        return({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `<p>${item.answer}</p>`
+            }
+      })
+    }
+      )
+    }
    
     return (
         <>
+         <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdQA) }}
+      />
             <SecondHero isCTA={false} title={'faq'} />
             <section className="py-20">
                 <div className="container">
