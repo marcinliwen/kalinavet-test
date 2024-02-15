@@ -96,6 +96,13 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${montserrat.className} antialiased grid grid-rows-[auto_1fr_auto] min-h-screen`}>
+      <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HHTPFKNR69"></script>
+      <script id="google-analytics">
+        {` window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HHTPFKNR69');`}
+      </script>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
