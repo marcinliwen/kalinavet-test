@@ -6,6 +6,7 @@ import Header from '../componenets/header'
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import Script from 'next/script';
 import Footer from '../componenets/footer';
 
 const locales = ['pl', 'de'];
@@ -96,13 +97,13 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${montserrat.className} antialiased grid grid-rows-[auto_1fr_auto] min-h-screen`}>
-      <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HHTPFKNR69"></script>
-      <script id="google-analytics">
+      <Script defer src="https://www.googletagmanager.com/gtag/js?id=G-HHTPFKNR69"></Script>
+      <Script id="google-analytics">
         {` window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-HHTPFKNR69');`}
-      </script>
+      </Script>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
