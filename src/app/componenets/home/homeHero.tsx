@@ -14,7 +14,7 @@ export default function HomeHero() {
   const t = useTranslations('Common');
   const h = useTranslations('HomePage');
   return (
-    <div className="bg-ui-light  lg:pb-0  w-full bg-gradient h-dvh flex relative">
+    <div className="bg-ui-light  lg:pb-0  w-full bg-gradient h-dvh lg:h-[calc(100vh_-_88px)] flex relative">
       <div className='container'>
         <div className="flex flex-col h-full  mt-auto">
           <div className="w-full md:w-2/3 max-h-full  absolute right-0 bottom-0 h-full flex items-end z-0 overflow-hidden">
@@ -54,7 +54,8 @@ export default function HomeHero() {
           </div>
           <div className='flex mt-12 absolute md:relative left-0 bottom-0 right-0  lg:w-2/3'>
             <div className='grid grid-cols-3 md:grid-cols-4 bg-ui-red [&>div>svg]:mx-auto gap-0 py-4 px-0 md:py-4 relative z-20 w-full md:w-auto'>
-              <div className='text-white text-center px-3 md:px-8  md:py-4 gap-8 md:mt-auto items-center border-r border-white/40'>
+              <Link href="/kontakt" className='text-white text-center px-3 md:px-8  md:py-4 gap-8 items-center border-r border-white/40'>
+              
                 <div className='w-6 mb-2 mx-auto md:ml-0'>
                   <Pin size="32" />
                 </div>
@@ -62,17 +63,17 @@ export default function HomeHero() {
                   {/*  <p className='text-2xl'>{t('new-address')}</p> */}
                   <p>Zasieki 75</p>
                 </div>
-              </div>
-              <div className='text-white text-center px-3 md:px-8 md:pr-4 md:py-4 md:mt-auto  border-r border-white/40  gap-8 items-center'>
+              </Link>
+              <Link href="/kontakt" className='text-white text-center px-3 md:px-8 md:pr-4 md:py-4  border-r border-white/40  gap-8 items-center'>
                 <div className='w-6 mb-2 mx-auto md:ml-0'>
                   <CalendarIcon size={"32"} />
                 </div>
                 <div className='text-center md:text-left'>
                   <p className='text-xs md:text-sm'>{/* {t('termin')} */} {t('monday-to-friday')}</p>
-
+                  <p className='text-xs md:text-sm'>9:30 - 13:30</p>
                 </div>
-              </div>
-              <div className=' text-white text-center px-3 md:px-8 md:pr-4 md:py-4 md:mt-auto   gap-8 items-center md:border-r border-white/40 '>
+              </Link>
+              <div className=' text-white text-center px-3 md:px-8 md:pr-4 md:py-4   gap-8 items-center md:border-r border-white/40 '>
                 <div className='w-6 mb-2 mx-auto md:ml-0'>
                   <Phone size={"32"} />
                 </div>
@@ -80,7 +81,7 @@ export default function HomeHero() {
                   <a className="max-w-max mx-auto md:ml-0 text-xs md:text-sm block  whitespace-nowrap" href="tel:+325006109445">{t("phone_numer")}</a>
                 </div>
               </div>
-              <div className=' text-white text-center  px-4 md:px-8 h-full mt-auto gap-8 items-center hidden md:block '>
+              <div className=' text-white text-center  px-4 md:px-8 md:py-4 h-full mt-auto gap-8 items-center hidden md:block '>
                 {/* <div className=''>
                   <VeterinarianIcon size={"32"} />
                 </div> */}
