@@ -97,7 +97,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <head>
-      <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="e234adcc-5966-473d-ab63-c9a4946cfe6a"  type="text/javascript"></script>
+      <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="e234adcc-5966-473d-ab63-c9a4946cfe6a"  type="text/javascript" async></script>
       </head>
       <body className={`${montserrat.className} antialiased grid grid-rows-[auto_1fr_auto] min-h-screen`}>
       <Script defer src="https://www.googletagmanager.com/gtag/js?id=G-HHTPFKNR69"></Script>
