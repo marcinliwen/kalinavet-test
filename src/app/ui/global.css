@@ -204,3 +204,9 @@ body {
 }
   
 }
+@media screen and (max-width: 600px){
+#CookiebotWidget:not(.CookiebotWidget-inactive) {
+    bottom: 100px!important;
+    right: 10px;
+}
+}
