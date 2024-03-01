@@ -78,7 +78,7 @@ export default function HomeHero() {
                   <Phone size={"32"} />
                 </div>
                 <div className='text-center md:text-left '>
-                  <a className="max-w-max mx-auto md:ml-0 text-xs md:text-sm block  whitespace-nowrap" href="tel:+325006109445">{t("phone_numer")}</a>
+                  <a className="max-w-max mx-auto md:ml-0 text-xs md:text-sm block  whitespace-nowrap" href="tel:+325006109445" rel="nofollow">{t("phone_numer")}</a>
                 </div>
               </div>
               <div className=' text-white text-center  px-4 md:px-8 md:py-4 h-full mt-auto gap-8 items-center hidden md:block '>
