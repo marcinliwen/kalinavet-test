@@ -4,7 +4,7 @@ import Image from "next/image";
 import FaqTitle from "@/app/componenets/home/faqTitle";
 import { Metadata } from "next";
 import FaqDog from "@/../public/dog_blue.png";
-import { GetAllQuestions } from "@/app/[locale]/pytania/actions";
+import { GetAllQuestions } from "@/app/[locale]/(main)/pytania/actions";
 import FaqForm from "@/app/componenets/questions/FaqForm";
 import DogForm from "@/../public/dog-form.png"
 import FaqFormtitle from "@/app/componenets/questions/FaqFormTitle";

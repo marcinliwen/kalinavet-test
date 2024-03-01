@@ -91,5 +91,24 @@
   "NotFound":{
     "title":"Wir konnten die von Ihnen gesuchte Seite nicht finden",
     "btn_text":"Zurück zur Startseite"
+  },
+  "PetForm":{
+    "birth_date":"Data urodzenia",
+    "pet_name": "Imię",
+    "species":"Gatunek",
+    "race":"Rasa",
+    "gender":"Płeć",
+    "next_appointment":"Następna wizyta",
+    "last_appointment":"Ostatnia wizyta",
+    "book_appointment":"Umów wizytę",
+    "documents":"Dokumenty",
+    "date": "Data",
+    "hour":"Godzina",
+    "place": "Miejsce",
+    "navigate":"Nawiguj"
+  },
+  "Dashboard":{
+    "login":"Du bist eingeloggt",
+    "dashboard":"Dashboard"
   }
 }

@@ -85,6 +85,7 @@ const localBussiness =
   }] 
 }
 
+
 export default function RootLayout({
   children, params: { locale }
 }: {
@@ -116,9 +117,9 @@ export default function RootLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBussiness) }}
       />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
+          
           {children}
-          <Footer />
+         
         </NextIntlClientProvider>
       </body>
     </html>

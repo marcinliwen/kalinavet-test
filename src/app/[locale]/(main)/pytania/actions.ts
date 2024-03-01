@@ -1,7 +1,7 @@
 'use server';
 
 import { GraphQLClient } from 'graphql-request'
-import { FaqList } from "../../services/definitions";
+import { FaqList } from "../../../services/definitions";
 import { postclient } from '@/../postmark';
 import {getTranslations} from 'next-intl/server';
 import { z } from 'zod';

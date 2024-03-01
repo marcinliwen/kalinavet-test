@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image';
 import { Link } from "@/navigation";
-import PostNav from '../../../componenets/postnav';
+import PostNav from '../../../../componenets/postnav';
 import { RichText } from "@graphcms/rich-text-react-renderer"
 
 export const metadata: Metadata = {

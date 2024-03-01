@@ -4,7 +4,7 @@ import React from 'react';
 import { useFormState } from 'react-dom';
 import { useFormStatus } from 'react-dom'
 import { useTranslations } from 'next-intl';
-import { sendQuestionform } from '@/app/[locale]/pytania/actions';
+import { sendQuestionform } from '@/app/[locale]/(main)/pytania/actions';
 
 function SubmitButton() {
     const { pending } = useFormStatus()

@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import { sendEmail } from "@/app/[locale]/pytania/actions";
+import { sendEmail } from "@/app/[locale]/(main)/pytania/actions";
 
 export default function Sendemail(){
     const[resMessage, setMessage] = React.useState<string>()
