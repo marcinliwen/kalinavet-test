@@ -1,4 +1,3 @@
-'use client'
 import { useTranslations } from 'next-intl';
 
 export default function ServicesTitle(){

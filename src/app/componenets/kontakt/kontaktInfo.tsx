@@ -1,4 +1,3 @@
-'use client'
 import { useTranslations } from 'next-intl';
 import CalendarSolid from '@/app/icons/CalendarSolid';
 import PinSolid from '@/app/icons/PinSolid';

@@ -36,7 +36,7 @@ export default async function FaqSectoin() {
     const locale = useLocale();
 
     const questions = await getFAQ(locale);
-    console.log('questions', questions)
+    //console.log('questions', questions)
     return (
         <>
             <section className="py-20">

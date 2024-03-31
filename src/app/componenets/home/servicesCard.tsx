@@ -1,4 +1,3 @@
-'use client'
 import LinkMore from "../linkMore";
 import ScalpelIcon from "@/app/icons/ScalpelIcon";
 import { useTranslations } from 'next-intl';
