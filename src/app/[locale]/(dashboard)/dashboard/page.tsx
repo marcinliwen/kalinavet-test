@@ -16,7 +16,7 @@ export default async function PrivatePage() {
   }
 
   return(
-  <main className='bg-gray-100'>
+  <main className=''>
   <MyPet />
   <ProfileData />
   <MyPetForm />

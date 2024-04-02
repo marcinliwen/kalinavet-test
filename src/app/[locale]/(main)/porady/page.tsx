@@ -38,7 +38,7 @@ export default async function Blog(){
     return(
         <>
             <SecondHero isCTA={false} title={"blog"} />
-            <section>
+            <section className='bg-white text-black'>
                 <div className='container'>
                     <PoradyTitle />
                     <p className='text-center py-16'>Wkrótce pojawią się tu artykuły</p>

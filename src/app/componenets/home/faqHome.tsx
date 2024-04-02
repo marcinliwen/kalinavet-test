@@ -39,7 +39,7 @@ export default async function FaqSectoin() {
     //console.log('questions', questions)
     return (
         <>
-            <section className="py-20">
+            <section className="py-20 bg-white text-black">
                 <div className="container">
                     <FaqTitle />
                     <div className='grid md:grid-cols-3 gap-14'>

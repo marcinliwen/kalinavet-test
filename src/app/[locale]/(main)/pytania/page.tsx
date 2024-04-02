@@ -42,7 +42,7 @@ export default async function Faq(props: any) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdQA) }}
       />
             <SecondHero isCTA={false} title={'faq'} />
-            <section className="py-20">
+            <section className="py-20 bg-white text-black">
                 <div className="container">
                     <FaqTitle />
                     <div className='grid md:grid-cols-3 gap-14'>
@@ -62,7 +62,7 @@ export default async function Faq(props: any) {
                     </div>
                 </div>
             </section >
-            <section className="py-20 bg-blue-100">
+            <section className="py-20 bg-blue-100 text-black">
                 <div className="container">
                 
                     <div className='grid md:grid-cols-3 gap-14 mb-14'>

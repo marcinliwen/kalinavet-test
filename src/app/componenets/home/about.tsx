@@ -40,7 +40,7 @@ export default async function HomeAbout(){
     //const {locale} = props.params;
     const aboutData = await getAbout(locale);
     return(
-        <section className="py-12 lg:mb-16 bg-blue-100 relative z-0 after:content-[''] after:absolute after:bg-white after:right-0 after:top-0 after:bottom-0 after:w-0 md:after:w-[20%] after:z-0" >
+        <section className="py-12  bg-blue-100 relative z-0 after:content-[''] after:absolute after:bg-white after:right-0 after:top-0 after:bottom-0 after:w-0 md:after:w-[20%] after:z-0" >
         <div className="container relative z-10">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2 flex flex-col justify-center text-black">

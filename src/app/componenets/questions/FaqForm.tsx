@@ -27,17 +27,17 @@ export default function FaqForm(){
             } className=''>
              <div className='mb-4 grid w-full'>
                 <label htmlFor="name" >{t('name')}</label>
-            <input id="name" name="name" type="text" className='border rounded-lg p-2' required></input>
+            <input id="name" name="name" type="text" className='border rounded-lg p-2 bg-white' required></input>
             {state.errors?.name && <p className='text-red-500 py-4 font-semibold text-sm'>{state.errors?.name}</p>}
             </div> 
             <div className='mb-4 grid w-full '>
                 <label htmlFor="question" >{t('question')}</label>
-            <textarea id="question" name="question"  className='border rounded-lg p-2' rows={8} required></textarea>
+            <textarea id="question" name="question"  className='border rounded-lg p-2  bg-white' rows={8} required></textarea>
             {state.errors?.question && <p className='text-red-500 py-4 font-semibold text-sm'>{state.errors?.question}</p>}
             </div>
             <div className='mb-4 grid w-full'>
                 <label htmlFor="email" >{t('email')}</label>
-            <input id="email" name="email" type="email" className='border rounded-lg p-2' required></input>
+            <input id="email" name="email" type="email" className='border rounded-lg p-2  bg-white' required></input>
             {state.errors?.email && <p className='text-red-500 py-4 font-semibold text-sm'>{state.errors?.email}</p>}
             </div>
          <SubmitButton />

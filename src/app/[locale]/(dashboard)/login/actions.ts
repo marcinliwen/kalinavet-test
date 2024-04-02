@@ -62,3 +62,16 @@ export async function logout() {
     revalidatePath(`/${locale}`, 'layout')
     redirect(`/${locale}`)
 }
+
+export async function isLogged(){
+    const cookieStore = cookies()
+    const supabase = createClient(cookieStore)
+    const { data, error } = await supabase.auth.getUser();
+  
+    if (error || !data?.user) {
+      return false
+    }
+    else{
+        return true
+    }
+}

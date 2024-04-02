@@ -23,12 +23,12 @@ export default function Onas() {
                 <meta name="description" content="Informacje o nas " />
             </Head>
             <SecondHero isCTA={false} title={'about'} />
-            <section className="py-12 my-16 relative z-0 " >
+            <section className="py-12 md:py-16 relative z-0 bg-white text-black" >
                 <div className="container relative z-10">
                     <AboutTitle />
                 </div>
             </section>
-            <section className="mb-16 py-2">
+            <section className="pb-16 pt-2 bg-white text-black">
                 <div className="container">
 
                     <div className="grid md:grid-cols-3 gap-8 relative ">

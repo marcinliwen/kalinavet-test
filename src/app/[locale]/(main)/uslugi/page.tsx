@@ -54,7 +54,7 @@ export default async function Uslugi() {
                 <meta name="description" content="Informacje kontaktowe" />
             </Head>
             <SecondHero isCTA={false} title={'services'} />
-            <section className='py-20'>
+            <section className='py-20 bg-white text-black'>
                 <div className="container">
                     <ServicesTitle />
                     <div className='grid grid-cols-1 gap-16'>

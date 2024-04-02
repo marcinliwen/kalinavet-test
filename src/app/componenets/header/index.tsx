@@ -17,11 +17,13 @@ export default function Header() {
             <div className="container mx-auto">
             
             </div>
-            <div className="container mx-auto flex justify-between">
+            <div className="container mx-auto flex ">
                 <Logo />
-                <Nav />
+                <div className=" w-full flex items-center lg:flex-row-reverse">
                 <IsLogged/>
-                
+                <Nav />
+                </div>
+               
             </div>
         </header>
     )
