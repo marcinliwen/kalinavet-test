@@ -1,37 +1,10 @@
-
 import React from 'react'
 import { createClient } from '@/app/utils/supabase/server'
 import { cookies } from 'next/headers'
 import { revalidatePath } from 'next/cache'
 import {getTranslations} from 'next-intl/server';
+import createPet from '@/app/[locale]/(dashboard)/dashboard/actions';
 
-async function createPet(formData: FormData) {
-    'use server'
-    const cookieStore = cookies()
-    const supabase = createClient(cookieStore)
-    const rawFormData = {
-        pet_name: formData.get('pet_name') as string,
-        species: formData.get('species') as string,
-        race: formData.get('race') as string,
-        gender: formData.get('gender') as string,
-        birth_date: formData.get('birth_date') as string,
-        id: formData.get('id') as null | number
-    }
-    console.log('pet name from form', rawFormData.id)
-    if (rawFormData.id) {
-        const { error } = await supabase
-            .from('user_pet')
-            .update({
-                pet_name: rawFormData.pet_name,
-                species: rawFormData.species,
-                race: rawFormData.race,
-                gender: rawFormData.gender,
-                birth_date: rawFormData.birth_date
-            })
-            .eq('id', rawFormData.id)
-    }
-    revalidatePath('/private')
-}
 
 
 export default async function MyPetForm() {
@@ -68,14 +41,7 @@ export default async function MyPetForm() {
                         )
                 })}
 
-                {/*  <div className='mb-4 grid grid-cols-2 gap-2 items-center w-full'>
-                    <label htmlFor='species' className='text-right'>Gatunek</label>
-                    <input id="species" className='border rounded-lg p-2' name={"species"} type="text" defaultValue={petObject.species ? petObject.species : ''} />
-                </div>
-                <div className='mb-4 grid grid-cols-2 gap-2 items-center w-full'>
-                    <label htmlFor='race' className='text-right'>Gatunek</label>
-                    <input id="race" className='border rounded-lg p-2' name={"race"} type="text" defaultValue={petObject.race ? petObject.race : ''} />
-                </div> */}
+                
                 <button type='submit' className='btn-ui ml-auto'>Zapisz</button>
             </form>
         </div>
