@@ -20,8 +20,7 @@ export default function PetAbout({ pet }: { pet: Pet }) {
     const deleteModal = useRef<HTMLDialogElement>(null);
     return (
         <>
-            <div className='card bg-base-100  border'>
-                <div className='card-body'>
+           
 
                     <div className='flex gap-3 items-start'>
                         <h3 className='font-semibold text-2xl first-letter:uppercase mb-4'>{pet.pet_name}</h3>
@@ -63,10 +62,10 @@ export default function PetAbout({ pet }: { pet: Pet }) {
                         </dialog>
                     </div>
                     <div className='flex gap-3'>
-                        <span className='min-w-[130px]'>{t('race')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.species}</span>
+                        <span className='min-w-[130px]'>{t('species')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.species}</span>
                     </div>
                     <div className='flex gap-3'>
-                        <span className='min-w-[130px]'>{t('species')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.race}</span>
+                        <span className='min-w-[130px]'>{t('race')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.race}</span>
                     </div>
                     <div className='flex gap-3'>
                         <span className='min-w-[130px]'>{t('gender')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.gender}</span>
@@ -76,9 +75,6 @@ export default function PetAbout({ pet }: { pet: Pet }) {
                     </div>
 
 
-                </div>
-
-            </div>
         </>
     )
 }

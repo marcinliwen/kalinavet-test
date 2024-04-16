@@ -50,14 +50,47 @@ export default function PetEdit({ petId }: { petId: number }) {
   const [state, formAction] = useFormState(updatePet, initialState);
   return (
     isLoading ? <p>Loading</p> :
-      <form action={formAction} className='max-w-[400px] grid' >
+      <form action={formAction} className='max-w-[400px] grid'>
         {petData.map((item: any) => {
           if (item === 'id') {
             return (
               <input key={item} hidden id={item} className='border rounded-lg p-2' name={item} type="text" defaultValue={petObject[item as keyof typeof petObject] as string} />
             )
           }
-          else if (item !== 'owner')
+          else if(item === 'species'){
+            return(
+              <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
+                 <label 
+                  htmlFor={item} 
+                  className='md:text-right'
+                  >
+                    {t(item)} 
+                </label>
+                <select id={item} name={item} className='border rounded-lg p-2' defaultValue={item} >
+                <option></option>
+                  <option value={'pies'} >{'pies'}</option>
+                  <option value={'kot'}>{'kot'}</option>
+                </select>
+              </div>
+            )
+          }
+          else if(item === 'gender'){
+            return(
+              <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
+                 <label 
+                  htmlFor={item} 
+                  className='md:text-right'
+                  >
+                    {t(item)} 
+                </label>
+                <select id={item} name={item} className='border rounded-lg p-2' defaultValue={item} >
+                  <option value={'male'} >{'male'}</option>
+                  <option value={'female'}>{'female'}</option>
+                </select>
+              </div>
+            )
+          }
+          else if (item !== 'owner'){
             return (
               <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
                 <label 
@@ -73,11 +106,11 @@ export default function PetEdit({ petId }: { petId: number }) {
                   type={item === 'birth_date' ? "date" : "text"} 
                   defaultValue={petObject[item as keyof typeof petObject] as string} />
               </div>
-            )
+            )}
+         
         })}
 
 <EditButton />
-        {/* s */}
       </form>
   )
 }

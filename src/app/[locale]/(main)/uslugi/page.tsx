@@ -46,8 +46,8 @@ export default async function Uslugi() {
 
     const locale = useLocale();
     const services = await getServices(locale);
-    console.log('services', services)
-    console.log('category', services[0].serviceCategory[0])
+    //console.log('services', services)
+    //console.log('category', services[0].serviceCategory[0])
     return (
         <>
             <Head>

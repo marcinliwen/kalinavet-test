@@ -32,6 +32,22 @@ export default async function MyPetForm() {
                                 <input key={item} hidden id={item} className='border rounded-lg p-2' name={item} type="text"  defaultValue={petObject[item as keyof typeof petObject] as string }/>
                         )
                     }
+                    else if(item === 'gender'){
+                        return(
+                          <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
+                             <label 
+                              htmlFor={item} 
+                              className='md:text-right'
+                              >
+                                {t(item)} 
+                            </label>
+                            <select className='border rounded-lg p-2' >
+                              <option value={'male'} >{'male'}</option>
+                              <option value={'female'}>{'female'}</option>
+                            </select>
+                          </div>
+                        )
+                      }
                     else if(item !== 'owner')
                         return (
                             <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
@@ -39,6 +55,7 @@ export default async function MyPetForm() {
                                 <input id={item} className='border rounded-lg p-2' name={item} type={item === 'birth_date' ? "date":"text"} defaultValue={petObject[item as keyof typeof petObject] as string } />
                             </div>
                         )
+                   
                 })}
 
                 

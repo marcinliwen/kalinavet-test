@@ -6,17 +6,28 @@ import { redirect } from 'next/navigation'
 import { getLocale } from 'next-intl/server'
 
 import { createClient } from '@/app/utils/supabase/server'
+import {z} from 'zod';
 
+import { SignUpFormSchema } from '@/lib/validationSignUpFormSchema' 
 
-export async function signup(formData: FormData) {
+export type SignUpData = {
+    email: string,
+    password: string
+}
+export async function signup(formData: SignUpData) {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
 
+    console.log('formData', formData)
     // type-casting here for convenience
     // in practice, you should validate your inputs
+    const {email, password} = SignUpFormSchema.parse({
+        email: formData.email,
+        password: formData.password
+    })
     const data = {
-        email: formData.get('email') as string,
-        password: formData.get('password') as string,
+        email: email as string,
+        password: password as string,
     }
 
     const { error } = await supabase.auth.signUp(data)
@@ -28,7 +39,6 @@ export async function signup(formData: FormData) {
     revalidatePath('/dashboard', 'layout')
     redirect('/dashboard')
 }
-
 export async function isLogged(){
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
@@ -41,3 +51,5 @@ export async function isLogged(){
         return true
     }
 }
+
+

@@ -9,8 +9,8 @@ export default async function  SignUpPage() {
   const is_logged = await isLogged();
 
   return (
-    <section className='grid grid-cols-2 h-screen bg-blue-500 text-black ' >
-      <div className='h-full relative'>
+    <section className='grid grid-cols-1 md:grid-cols-2 h-screen bg-blue-500 text-black ' >
+      <div className='h-full hidden md:block relative'>
         <Image
           alt="hero"
           src={DogHero2}
@@ -20,27 +20,27 @@ export default async function  SignUpPage() {
         />
       </div>
       <div className="container flex flex-col justify-center">
-        <div className='card bg-white  border max-w-[500px]'>
+        <div className='card bg-white  border max-w-[450px]'>
           <div className='card-body'>
           <form className='w-full'>
-          <h2>Zaloguj się do konta klienta</h2>
+          <h2 className='text-center text-xl font-semibold'>Zaloguj się do panelu klienta</h2>
           <div className='mb-4 grid w-full'>
             <label htmlFor="email">Email:</label>
-            <input id="email" name="email" type="email" className='border rounded-lg p-2 bg-white' required />
+            <input id="email" name="email" type="email" className='border rounded-lg p-2 bg-white focus-within:outline' required autoFocus autoComplete="email"/>
           </div>
           <div className='mb-4 grid w-full'>
             <label htmlFor="password">Password:</label>
-            <input id="password" name="password" type="password" className='border rounded-lg p-2 bg-white' required />
+            <input id="password" name="password" type="password" className='border rounded-lg p-2 bg-white focus-within:outline' required autoComplete="current-password"/>
           </div>
-          <div className='grid gap-4'>
-            <button formAction={login} className='btn-ui'>Log in</button>
+          <div className='grid gap-4  pt-4'>
+            <button formAction={login} className='btn-ui h-[42px]'>Log in</button>
           </div>
           
         </form>
-        <button className='hover:underline text-right pt-2'>Zapomniałeś hasła?</button>
+        <Link href="/password" className='hover:underline text-right pt-2'>Zapomniałeś hasła?</Link>
         <hr className='my-8'/>
-        <div className='flex flex-wrap gap-2 justify-center'>
-        <span>nie masz jeszcze konta? </span> <Link href="/sign-up" className='hover:underline uppercase'>Utwórz konto!</Link>
+        <div className='flex flex-wrap gap-2 justify-center items-center '>
+        <span>nie masz jeszcze konta? </span> <Link href="/sign-up" className='font-semibold uppercase text-xs hover:underline'>Utwórz konto!</Link>
         </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ type Pet = {
   species: string | null;
 };
 
-const petData = ['pet_name', 'gender','race', 'species','birth_date']
+const petData = ['pet_name', 'species','race', 'gender','birth_date']
 const initialState = {
   message: "",
 };
@@ -46,6 +46,40 @@ export default function CreatePet({userId}:{userId: string}) {
           if (item === 'id') {
             return (
               <input key={item} hidden id={item} className='border rounded-lg p-2' name={item} type="text" defaultValue={userId} />
+            )
+          }
+          else if(item === 'species'){
+            return(
+              <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
+                 <label 
+                  htmlFor={item} 
+                  className='md:text-right'
+                  >
+                    {t(item)} 
+                </label>
+                <select id={item} name={item} className='border rounded-lg p-2' defaultValue={item} >
+                  <option></option>
+                  <option value={'pies'} >{'pies'}</option>
+                  <option value={'kot'}>{'kot'}</option>
+                </select>
+              </div>
+            )
+          }
+          else if(item === 'gender'){
+            return(
+              <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
+                 <label 
+                  htmlFor={item} 
+                  className='md:text-right'
+                  >
+                    {t(item)} 
+                </label>
+                <select className='border rounded-lg p-2' >
+                  <option></option>
+                  <option value={'male'} >{'male'}</option>
+                  <option value={'female'}>{'female'}</option>
+                </select>
+              </div>
             )
           }
           else if (item !== 'owner')

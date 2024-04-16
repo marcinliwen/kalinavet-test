@@ -11,7 +11,7 @@ import MyPetTabs from './myPetTabs';
 
 type Pet = {
     birth_date: string | null;
-    gender: string | null;
+    gender: {male: string, femaile: string} | null;
     id: number;
     owner: string | null;
     pet_name: string | null;
@@ -27,9 +27,9 @@ export default async function MyPet({userId}:{userId:string}) {
     if (error) {
         return;
     }
+    console.log('pet data', data)
     return (
         <div className='container mx-auto py-12 '>
-
             <div className='grid md:grid-cols-12 w-full gap-8'>
                 <div className=' bg-base-200 max-w-56 rounded-box col-span-2 px-6 py-4 grid'>
                     <ul className='menu  text-center'>
