@@ -8,7 +8,7 @@ import SearchIcon from '@/app/icons/SearchIcon';
 import AddIcon from '@/app/icons/AddIcon';
 import LogOutBtn from '../header/logOutBtn';
 import MyPetTabs from './myPetTabs';
-
+//import { getPetNextVisit } from '@/app/[locale]/(dashboard)/dashboard/actions';
 type Pet = {
     birth_date: string | null;
     gender: {male: string, femaile: string} | null;
@@ -17,17 +17,24 @@ type Pet = {
     pet_name: string | null;
     race: string | null;
     species: string | null;
+   // visits: any
 }[];
 
 export default async function MyPet({userId}:{userId:string}) {
     const t = await getTranslations('PetForm')
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
-    const { data, error } = await supabase.from('user_pet').select()
+    const { data, error } = await supabase.from('users_pet').select('*, pets!inner(*)')
+
+    
     if (error) {
         return;
     }
-    console.log('pet data', data)
+
+    //const { data, error} = await supabase.from('pets_data').select();
+
+    console.log('pet data 2', data && data[0].pets
+    )
     return (
         <div className='container mx-auto py-12 '>
             <div className='grid md:grid-cols-12 w-full gap-8'>
@@ -51,7 +58,7 @@ export default async function MyPet({userId}:{userId:string}) {
                     </div>
 
                 </div>
-                {data && <MyPetTabs myPets={data} userId={userId}/>}
+                {data && <MyPetTabs myPets={data} userId={userId}/>} 
             </div>
         </div>
     )

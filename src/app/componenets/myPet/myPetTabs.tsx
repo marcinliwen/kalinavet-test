@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import AddIcon from '@/app/icons/AddIcon';
 import { useTranslations } from 'next-intl';
 import ClipboardIcon from '@/app/icons/ClipboardIcon';
@@ -9,18 +9,34 @@ import PetAbout from './petAbout';
 import CreatePet from './createPet';
 import EditIcon from "@/app/icons/EditIcon";
 import NextVisit from './nextVisit';
+import { getResultsFiles } from '@/app/[locale]/(dashboard)/dashboard/actions';
+
+type MyPets = {
+    pet_id: string,
+    pets: Pet[]
+}[]
 type Pet = {
-    birth_date: string | null;
+    birth_date: Date | null;
     gender: string | null;
     id: number;
     owner: string | null;
-    pet_name: string | null;
-    race: string | null;
+    name: string | null;
+    breed: string | null;
     species: string | null;
-}[];
 
-export default function MyPetTabs({ myPets, userId }: { myPets: Pet, userId: string }) {
-    console.log(myPets)
+};
+
+export default function MyPetTabs({ myPets, userId }: { myPets: MyPets, userId: string }) {
+    console.log('my pets',myPets)
+
+    useEffect(()=>{
+const results = async () =>{ 
+    const resultsData = await getResultsFiles()
+    console.log('results', resultsData)
+}
+results();
+
+    },[])
 
     const [tab, setTab] = React.useState<string>('my_tabs_0');
     console.log('tab', tab)
@@ -34,18 +50,19 @@ export default function MyPetTabs({ myPets, userId }: { myPets: Pet, userId: str
                 <div role="tablist" className="tabs tabs-lifted ">
                     {myPets?.map((pet, index: number) => {
                         return (
-                            <React.Fragment key={pet.pet_name}>
-                                <input type="radio" name={`my_tabs_${index}`} value={`my_tabs_${index}`} role="tab" className="tab  uppercase " aria-label={`${pet.pet_name}`} onChange={onOptionChange} checked={tab === `my_tabs_${index}`} />
+                            <React.Fragment key={pet.pet_id}>
+                                <input type="radio" name={`my_tabs_${index}`} value={`my_tabs_${index}`} role="tab" className="tab  uppercase " aria-label={`${pet.pets[0].name}`} onChange={onOptionChange} checked={tab === `my_tabs_${index}`} />
                                 <div role="tabpanel" className="tab-content border border-base-300 bg-base-100 p-6 rounded-xl ">
                                     <div className='md:grid md:grid-cols-2 gap-8'>
                                         <div className='card bg-base-100  border'>
                                             <div className='card-body'>
-                                                <PetAbout pet={pet} />
+                                                {pet && <PetAbout pet={pet.pets[0]} />}
+                                                
                                             </div>
                                         </div>
                                         <div className='card bg-base-100  border'>
                                             <div className='card-body'>
-                                                <NextVisit petId={pet.id} />
+                                                <NextVisit petId={pet.pet_id}  />
                                             </div>
                                         </div>
                                         <div className='card bg-base-100  border col-span-2 '>

@@ -95,7 +95,7 @@ export async function deletePet(petId: number) {
 }
 
 
-export async function getPetNextVisit(petId: number) {
+export async function getPetNextVisit(petId: string) {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
     try {
@@ -104,9 +104,24 @@ export async function getPetNextVisit(petId: number) {
             .from('visits')
             .select('*')
             .eq('pet_id', petId)
+            .order('visit_date', { ascending: true })
+            .limit(1)
        // revalidatePath('/dashboard');
         return visits
     } catch (error) {
         return { message: 'something wrong' }
     }
+}
+
+export async function getResultsFiles(){
+    const cookieStore = cookies()
+    const supabase = createClient(cookieStore)
+const { data, error } = await supabase
+.storage
+.from('results')
+.list('morfology')
+console.log('data results', data)
+if(!error){
+    return data;
+}
 }

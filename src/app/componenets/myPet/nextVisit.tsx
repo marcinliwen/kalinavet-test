@@ -1,35 +1,32 @@
 'use client'
 import React from 'react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import EditIcon from "@/app/icons/EditIcon";
 import { getPetNextVisit } from '@/app/[locale]/(dashboard)/dashboard/actions';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/app/utils/supabase/client'
 import { VisitSkeleton } from '../skeletons';
-export default function NextVisit({ petId }: { petId: number }) {
+import { dateFormat } from '@/app/utils/displayDate/dateDisplay';
+import { timeFormat } from '@/app/utils/displayDate/timeDisplay';
+export default function NextVisit({ petId }: { petId: string }) {
     const t = useTranslations('PetForm')
     const [isLoading, setIsLoading] = useState(true)
     const [visits, setVisits] = useState<any>([])
 
     useEffect(() => {
-        const getVisitData = async (petId:number) =>{
+        const getVisitData = async (petId:string) =>{
             const data = await getPetNextVisit(petId)
             setVisits(data? data : [])
             setIsLoading(false)
         }
         getVisitData(petId);
-        /* const getVisits = async () => {
-            let { data: visits, error } = await supabase
-                .from('visits')
-                .select('*')
-                .eq('pet_id', petId)
-            setVisits(visits ? visits : [])
-        }
-        getVisits(); */
-    }, [petId])
+      
+    }, [petId]) 
+
     return (
-        isLoading ? <VisitSkeleton /> :
-        <>
+       isLoading ? <VisitSkeleton /> :
+        <React.Fragment key={petId}>
             <div className='flex gap-3 items-start'>
                 <h3 className='font-semibold text-2xl mb-4'>{t('next_appointment')}:</h3>
                 <div className="dropdown dropdown-bottom dropdown-end ml-auto">
@@ -39,11 +36,13 @@ export default function NextVisit({ petId }: { petId: number }) {
                     </ul>
                 </div>
             </div>
-            {visits.length > 0 && visits.map((visit: any) => {
+            {visits.length> 0 ?
+            <>
+            {visits.map((visit: any) => {
                 return (
                     <React.Fragment key={visit.id}>
                         <div className='flex gap-3 mb-3'>
-                            <span className='min-w-[130px] '>{t('date')}:</span> <span className='font-semibold'>{visit.visit_date}</span>
+                            <span className='min-w-[130px] '>{t('date')}:</span> <span className='font-semibold'>{dateFormat(visit.visit_date)}</span>
                         </div>
                         <div className='flex gap-3 mb-3'>
                             <span className='min-w-[130px] '>{t('hour')}:</span> <span className='font-semibold'>{visit.visit_time}</span>
@@ -59,6 +58,14 @@ export default function NextVisit({ petId }: { petId: number }) {
             </div>
             <div className='flex'>
                 <a className='btn cursor-pointer ml-auto' href="https://goo.gl/maps/5vwZ1Veo9Y9zDGsC9" target="_blank">{t('navigate')}</a>
-            </div></>
-    )
+            </div>
+            </>
+            :
+            <div className='grid gap-8'>
+            <p>Nie masz jeszcze zaplanowanych wizyt</p>
+            <Link href="/kontakt" className='btn-ui  max-w-max ml-auto'>Umów się na wizytę</Link>
+            </div>
+}
+            </React.Fragment>
+        )
 }
