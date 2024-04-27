@@ -6,6 +6,7 @@ import StetoscopeIcon from "@/app/icons/StetoscopeIcon";
 import { RichText } from "@graphcms/rich-text-react-renderer"
 import ServicesIcon from "@/app/componenets/home/servicesIcon";
 import type { Metadata } from "next";
+import React from "react";
 
 
 async function getServices(locale: string) {
@@ -69,7 +70,7 @@ export default async function Uslugi() {
                             </div>
                             <div className='accordion md:col-span-2'>
                                 {service.serviceCategory.map((item: any, index: number) => (
-                                    <>
+                                    <React.Fragment key={item.id}>
                                     {item.description?.raw ?
                                     <>
                                         <input type="radio" id={`acc_${service.title}_${index}`} name="acc1" />
@@ -106,7 +107,7 @@ export default async function Uslugi() {
                                         </div>
                                     </>
                                     }
-                                    </>
+                                    </React.Fragment>
                                 ))}
 
                                 <input id="acc_close" type="radio" name="acc1" />

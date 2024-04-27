@@ -50,7 +50,7 @@ export default async function AlertNews(){
         <>
             <section className='bg-ui-red '>
                 {news && news.filter((news:any)=>news.displayInTopBanner).map((news:any)=>{
-                   return <div className='container mx-auto gap-4  items-center py-1 text-white whitespace-nowrap text-right overflow-auto flex ' >{'W tym tygodniu pracujemy: '}<RichText content={news.content.raw}/></div>
+                   return <div key={news.title} className='container mx-auto gap-4  items-center py-1 text-white whitespace-nowrap text-right overflow-auto flex ' >{'W tym tygodniu pracujemy: '}<RichText content={news.content.raw}/></div>
                 })}
                 {/* <div className='container mx-auto flex gap-4 text-white items-center py-1 overflow-auto whitespace-nowrap' dangerouslySetInnerHTML={{ __html: news.html }} >
 
