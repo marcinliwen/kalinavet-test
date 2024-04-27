@@ -70,6 +70,8 @@ export default async function Uslugi() {
                             <div className='accordion md:col-span-2'>
                                 {service.serviceCategory.map((item: any, index: number) => (
                                     <>
+                                    {item.description?.raw ?
+                                    <>
                                         <input type="radio" id={`acc_${service.title}_${index}`} name="acc1" />
                                         <div className="accordion-item border-b-[0.5px]  last-of-type:border-0">
                                             <label
@@ -87,9 +89,23 @@ export default async function Uslugi() {
                                             />
                                             <div className="accordion-content px-6">
                                                 <RichText content={item.description.raw}/>
-                                               
                                             </div>
                                         </div>
+                                    </>
+                                    :
+                                    <>
+                                    <div className="accordion-item border-b-[0.5px]  last-of-type:border-0">
+                                            <label
+                                                htmlFor={`acc_${service.title}_${index}`}
+                                                className="accordion-title cursor-pointer flex items-center bg-blue-100 px-6 py-7"
+                                            >
+                                                <span className="flex-1">{item.name}</span>
+                                              
+                                            </label>
+                                           
+                                        </div>
+                                    </>
+                                    }
                                     </>
                                 ))}
 

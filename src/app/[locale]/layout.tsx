@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Script from 'next/script';
 import Footer from '../componenets/footer';
+import AlertNews from '../componenets/alertNews';
 
 const locales = ['pl', 'de'];
 
@@ -85,7 +86,9 @@ const localBussiness =
   }] 
 }
 
-export default function RootLayout({
+
+
+export default  function RootLayout({
   children, params: { locale }
 }: {
   children: React.ReactNode, params: any
@@ -94,6 +97,8 @@ export default function RootLayout({
 
   if (!locales.includes(locale as any)) notFound();
   const messages = useMessages();
+
+    
   return (
     <html lang={locale}>
       <head>
