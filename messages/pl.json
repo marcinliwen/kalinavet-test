@@ -91,5 +91,8 @@
   "NotFound":{
     "title":"Nie znaleźliśmy strony, której szukasz",
     "btn_text":"Wróć na stronę główną"
+  },
+  "AlertNews":{
+    "title": "W tym tygodniu pracujemy:"
   }
 }

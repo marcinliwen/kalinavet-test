@@ -55,7 +55,6 @@ const schema = z.object({
          
         }
       })
-      console.log(Response)
       const responseData = await response.then((res: any) => res);
       if (responseData.Message != 'OK') {
         return {
@@ -66,7 +65,6 @@ const schema = z.object({
       return { message: `Wiadomość wysłana do ${data.mail}` }
     } catch (e) {
       console.error(e)
-      console.log(Response.error)
       return { message: 'Failed to send email' }
     }
   

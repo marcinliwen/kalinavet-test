@@ -1,9 +1,8 @@
-'use server'
 import React from "react";
 import AlertIcon from "./AlertIcon";
 import { useLocale } from 'next-intl';
 import { RichText } from "@graphcms/rich-text-react-renderer"
-
+import { useTranslations } from "next-intl";
 type News = {
     content: {
         html: string
@@ -45,12 +44,15 @@ export default async function AlertNews(){
     const locale = useLocale();
 
     const news = await getNews(locale)
-    console.log('news', news.filter((news:any)=>news.displayInTopBanner))
     return (
         <>
-            <section className='bg-ui-red '>
+            <section id="otwarte" className=' pt-32'>
                 {news && news.filter((news:any)=>news.displayInTopBanner).map((news:any)=>{
-                   return <div key={news.title} className='container mx-auto gap-4  items-center py-1 text-white whitespace-nowrap text-right overflow-auto flex ' >{'W tym tygodniu pracujemy: '}<RichText content={news.content.raw}/></div>
+                   return <div key={news.title} className='container mx-auto  items-center py-1 text-sm  overflow-auto grid grid-cols-3'>
+                    <h2>{'Najbliższe godziny otwarcia:'}</h2>
+                    <div className="col-span-2"><RichText content={news.content.raw} /></div>
+                    
+                    </div>
                 })}
                 {/* <div className='container mx-auto flex gap-4 text-white items-center py-1 overflow-auto whitespace-nowrap' dangerouslySetInnerHTML={{ __html: news.html }} >
 

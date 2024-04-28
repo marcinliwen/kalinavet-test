@@ -37,7 +37,6 @@ export async function postQuestion(prevState: State, formData: FormData) {
         "question": question,
         "email": email,
     }
-    console.log('variables', variables)
     const hygraph = new GraphQLClient(process.env.HYGRAPH_ENDPOINT, {
         headers: {
             authorization: `Bearer ${process.env.HYGRAPH_MUTATION_TOKEN}`,

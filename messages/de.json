@@ -91,5 +91,8 @@
   "NotFound":{
     "title":"Wir konnten die von Ihnen gesuchte Seite nicht finden",
     "btn_text":"Zurück zur Startseite"
+  },
+  "AlertNews":{
+    "title": "Diese Woche geöffnet:"
   }
 }

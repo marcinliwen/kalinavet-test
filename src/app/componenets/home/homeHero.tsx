@@ -14,7 +14,7 @@ export default function HomeHero() {
   const t = useTranslations('Common');
   const h = useTranslations('HomePage');
   return (
-    <div className="bg-ui-light  lg:pb-0  w-full bg-gradient h-dvh lg:h-[calc(100vh_-_88px)] flex relative">
+    <div className="bg-ui-light  lg:pb-0  w-full bg-gradient h-dvh lg:h-[calc(100vh_-_120px)] flex relative">
       <div className='container'>
         <div className="flex flex-col h-full  mt-auto">
           <div className="w-full md:w-2/3 max-h-full  absolute right-0 bottom-0 h-full flex items-end z-0 overflow-hidden">

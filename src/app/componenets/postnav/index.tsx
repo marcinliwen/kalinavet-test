@@ -23,7 +23,6 @@ async function getNextPost(createdAt:any){
             })
     })
     const data = await response.json();
-    console.log('data', data)
     return data.data.posts;
 }
 async function getPrevPost(createdAt:any){
@@ -47,7 +46,6 @@ async function getPrevPost(createdAt:any){
             })
     })
     const data = await response.json();
-    console.log('data', data)
     return data.data.posts;
 }
 
@@ -55,9 +53,7 @@ export default  async function PostNav({currentDate}:any){
 
     const nextPost =  await getNextPost(currentDate);
     const prevPost = await getPrevPost(currentDate);
-    console.log('nextPost', nextPost
-    )
-    console.log('prevPost', prevPost)
+    
     if(!nextPost) return;
     return(
         <aside>

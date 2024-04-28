@@ -39,7 +39,6 @@ async function getServices(locale: string) {
 export default async function HomeServices(){
     const locale = useLocale();
     const data = await getServices(locale);
-    console.log('services', data)
 
     return(
         <section className=" py-20 bg-white text-black">

@@ -8,7 +8,6 @@ import { notFound } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Script from 'next/script';
 import Footer from '../componenets/footer';
-import AlertNews from '../componenets/alertNews';
 
 const locales = ['pl', 'de'];
 
