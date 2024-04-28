@@ -48,9 +48,9 @@ export default async function AlertNews(){
         <>
             <section id="otwarte" className=' pt-32'>
                 {news && news.filter((news:any)=>news.displayInTopBanner).map((news:any)=>{
-                   return <div key={news.title} className='container mx-auto  items-center py-1 text-sm  overflow-auto grid grid-cols-3'>
+                   return <div key={news.title} className='container mx-auto  py-1 text-sm  overflow-auto grid grid-cols-3 items-start'>
                     <h2>{'Najbliższe godziny otwarcia:'}</h2>
-                    <div className="col-span-2"><RichText content={news.content.raw} /></div>
+                    <div className="col-span-2 leading-8 "><RichText content={news.content.raw} /></div>
                     
                     </div>
                 })}
