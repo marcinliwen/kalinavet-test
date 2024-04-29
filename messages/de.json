@@ -93,6 +93,9 @@
     "btn_text":"Zurück zur Startseite"
   },
   "AlertNews":{
-    "title": "Diese Woche geöffnet:"
+    "title": "Diese Woche geöffnet:",
+    "today_closed": "Das Veterinäramt ist heute geschlossen, ",
+    "next_open":"schauen Sie nach nächste Öffnungszeiten.",
+    "is_open": "Heute ist geöffnet: "
   }
 }

@@ -93,6 +93,9 @@
     "btn_text":"Wróć na stronę główną"
   },
   "AlertNews":{
-    "title": "W tym tygodniu pracujemy:"
+    "title": "W tym tygodniu pracujemy:",
+    "today_closed": "Dziś gabinet jest zamknięty, ",
+    "next_open": "sprawdź najbliższe godziny otwarcia.",
+    "is_open":"Dziś gabinet jest otwarty: "
   }
 }

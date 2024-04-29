@@ -3,6 +3,7 @@ import AlertIcon from "./AlertIcon";
 import { useLocale } from 'next-intl';
 import { RichText } from "@graphcms/rich-text-react-renderer"
 import { useTranslations } from "next-intl";
+import AlertNewsTitle from "./alertTitle";
 type News = {
     content: {
         html: string
@@ -50,7 +51,7 @@ export default async function AlertNews(){
                 <div className="container">
                 {news && news.filter((news:any)=>news.displayInTopBanner).map((news:any)=>{
                    return <div key={news.title} className=' mx-auto  py-1 text-sm  overflow-auto grid md:grid-cols-3 items-start border-b border-[#242424] mb-8'>
-                    <h2>{'Najbliższe godziny otwarcia:'}</h2>
+                   <AlertNewsTitle />
                     <div className="md:col-span-2 leading-8 mb-8"><RichText content={news.content.raw} /></div>
                     
                     </div>
