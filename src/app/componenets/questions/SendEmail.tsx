@@ -7,7 +7,6 @@ export default function Sendemail(){
     async function  emailHandler(){
       try{
         const res = await sendEmail().then(res=> res)
-        console.log(res)
         if(res){
           setMessage(res.Message)
         }

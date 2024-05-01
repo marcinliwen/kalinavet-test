@@ -66,7 +66,7 @@ export default function Footer() {
                             )}</ul>
                     </nav>
                     <ul className="block md:hidden text-left">
-                        <li><a className="leading-7 block text-white text-sm font-light " href="/">Facebook</a></li>
+                        <li><a className="leading-7 block text-white text-sm font-light " href="/" rel="nofollow">Facebook</a></li>
                     </ul>
 
                 </div>
@@ -76,7 +76,7 @@ export default function Footer() {
                         &copy; {year} Kalina VET. With love for animals.
                     </div>
                     <ul className="ml-auto hidden md:block">
-                        <li><a className="leading-7 block text-white text-sm font-light" href="/">Facebook</a></li>
+                        <li><a className="leading-7 block text-white text-sm font-light" href="/" rel="nofollow">Facebook</a></li>
                     </ul>
                 </div>
             </div>

@@ -20,7 +20,7 @@ async function getFAQ(locale: string) {
         body: JSON.stringify({
             query: `
       query FaqData($locale: Locale!) {
-        faqs(locales: [$locale]) {
+        faqs(locales: [$locale], first: 4) {
             answer
             question
           }

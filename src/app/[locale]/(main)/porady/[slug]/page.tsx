@@ -57,7 +57,6 @@ async function getPost(slug: any) {
 export default async function Post({ params }: any){
 
   const postData = await getPost(params.slug)
-  console.log('postData', postData);
 
   return (
     <section className='pb-16'>

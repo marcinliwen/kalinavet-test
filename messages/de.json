@@ -92,6 +92,12 @@
     "title":"Wir konnten die von Ihnen gesuchte Seite nicht finden",
     "btn_text":"Zurück zur Startseite"
   },
+  "AlertNews":{
+    "title": "Diese Woche geöffnet:",
+    "today_closed": "Das Veterinäramt ist heute geschlossen, ",
+    "next_open":"schauen Sie nach nächste Öffnungszeiten.",
+    "is_open": "Heute ist geöffnet: "
+  },
   "PetForm":{
     "birth_date":"Data urodzenia",
     "pet_name": "Imię",

@@ -86,7 +86,8 @@ const localBussiness =
 }
 
 
-export default function RootLayout({
+
+export default  function RootLayout({
   children, params: { locale }
 }: {
   children: React.ReactNode, params: any
@@ -95,6 +96,8 @@ export default function RootLayout({
 
   if (!locales.includes(locale as any)) notFound();
   const messages = useMessages();
+
+    
   return (
     <html lang={locale}>
       <head>

@@ -103,7 +103,6 @@ export async function sendQuestionform(prevState: State, formData: FormData) {
 
     } catch (e) {
         console.error(e)
-        console.log(Response.error)
         return { message: 'Failed to send email' }
     }  
 }
