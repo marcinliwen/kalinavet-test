@@ -23,19 +23,21 @@ export default function Header() {
             <section className='bg-ui-red '>
                 <BannerInfo />
             </section>
-            <HeaderNav />
-        <header className="fixed py-2 lg:py-0 lg:sticky left-0 right-0  top-0 z-50 bg-blue-500 ">
-            <div className="container mx-auto">
-            
-            </div>
             <div className="container mx-auto flex ">
+            <div className="flex-1 flex items-center lg:flex-row-reverse">
+            <IsLogged/>
+
+            <HeaderNav />
+            </div>
+            </div>
+            {/* <div className="container mx-auto flex ">
                 <Logo />
                 <div className=" w-full flex items-center lg:flex-row-reverse">
                 <IsLogged/>
                 <Nav />
                 </div>
                
-            </div>
+            </div> */}
         </header>
     )
 }
