@@ -100,9 +100,9 @@
   },
   "PetForm":{
     "birth_date":"Data urodzenia",
-    "pet_name": "Imię",
+    "name": "Imię",
     "species":"Gatunek",
-    "race":"Rasa",
+    "breed":"Rasa",
     "gender":"Płeć",
     "next_appointment":"Następna wizyta",
     "last_appointment":"Ostatnia wizyta",

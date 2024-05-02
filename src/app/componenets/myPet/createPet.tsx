@@ -4,18 +4,17 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/app/utils/supabase/client'
 import { useTranslations } from 'next-intl'
 import {createPet} from '@/app/[locale]/(dashboard)/dashboard/actions';
-
-type Pet = {
+import { Pet } from "@/app/services/definitions";
+/* type Pet = {
   birth_date: string | null;
   gender: string | null;
-  id: number;
-  owner: string | null;
-  pet_name: string | null;
-  race: string | null;
+  pet_id: number;
+  name: string | null;
+  breed: string | null;
   species: string | null;
-};
+}; */
 
-const petData = ['pet_name', 'species','race', 'gender','birth_date']
+const petData = ['name', 'species','breed', 'gender','birth_date']
 const initialState = {
   message: "",
 };
