@@ -94,8 +94,8 @@
   },
   "AlertNews":{
     "title": "W tym tygodniu pracujemy:",
-    "today_closed": "Dziś gabinet jest zamknięty, ",
+    "today_closed": "Dziś gabinet jest zamknięty.",
     "next_open": "sprawdź najbliższe godziny otwarcia.",
-    "is_open":"Dziś gabinet jest otwarty: "
+    "is_open":"Dziś gabinet jest otwarty:  "
   }
 }
