@@ -10,9 +10,9 @@ export async function updatePet(prevState: {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
     const rawFormData = {
-        pet_name: formData.get('pet_name') as string,
+        name: formData.get('name') as string,
         species: formData.get('species') as string,
-        race: formData.get('race') as string,
+        breed: formData.get('breed') as string,
         gender: formData.get('gender') as string,
         birth_date: formData.get('birth_date') as string,
         id: formData.get('id') as null | number
@@ -23,11 +23,11 @@ export async function updatePet(prevState: {
     console.log('rawFormData', rawFormData)
     try {
         await supabase
-            .from('user_pet')
+            .from('pets')
             .update({
-                pet_name: rawFormData.pet_name,
+                name: rawFormData.name,
                 species: rawFormData.species,
-                race: rawFormData.race,
+                breed: rawFormData.breed,
                 gender: rawFormData.gender,
                 birth_date: rawFormData.birth_date
             })
@@ -48,12 +48,12 @@ export async function createPet(prevState: {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
     const rawFormData = {
-        pet_name: formData.get('pet_name') as string,
+        name: formData.get('name') as string,
         species: formData.get('species') as string,
-        race: formData.get('race') as string,
+        breed: formData.get('breed') as string,
         gender: formData.get('gender') as string,
         birth_date: formData.get('birth_date') as string,
-        owner: formData.get('owner') as string,
+        owner_id: formData.get('owner_id') as string,
         id: 1 as null | number,
     }
     if (!rawFormData.id) {
@@ -62,18 +62,20 @@ export async function createPet(prevState: {
 
     try {
         await supabase
-            .from('user_pet')
+            .from('pets')
             .insert({
-                pet_name: formData.get('pet_name') as string,
+                name: formData.get('name') as string,
                 species: formData.get('species') as string,
-                race: formData.get('race') as string,
+                breed: formData.get('breed') as string,
                 gender: formData.get('gender') as string,
                 birth_date: formData.get('birth_date') as string,
-                owner: formData.get('owner') as string,
+                owner_id: formData.get('owner_id') as string,
             })
         revalidatePath('/dashboard');
+        console.log('success')
         return { message: 'Success' }
     } catch (error) {
+        console.log('error', error)
         return { message: 'something wrong' }
     }
 }
@@ -95,33 +97,83 @@ export async function deletePet(petId: number) {
 }
 
 
-export async function getPetNextVisit(petId: string) {
+export async function getPetNextVisit(petId: number) {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
     try {
 
-        let { data:visits, error } = await supabase
+        let { data: visits, error } = await supabase
             .from('visits')
             .select('*')
             .eq('pet_id', petId)
             .order('visit_date', { ascending: true })
             .limit(1)
-       // revalidatePath('/dashboard');
+        // revalidatePath('/dashboard');
         return visits
     } catch (error) {
         return { message: 'something wrong' }
     }
 }
 
-export async function getResultsFiles(){
+export async function getResultsFiles() {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
-const { data, error } = await supabase
-.storage
-.from('results')
-.list('morfology')
-console.log('data results', data)
-if(!error){
-    return data;
+    const { data, error } = await supabase
+        .storage
+        .from('results')
+        .list('morfology')
+    //console.log('data results', data)
+    if (!error) {
+        return data;
+    }
 }
+
+export async function getResultById(pet_id: number) {
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
+
+    try {
+        let { data, error } = await supabase
+            .from('results')
+            .select('*')
+            .eq('pet_id', pet_id)
+
+        console.log('results', data)
+        return data
+    } catch (error) {
+        console.error(error)
+        return { message: 'something wrong', }
+    }
+}
+
+export async function getFileUrl(fileName: string) {
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
+    try {
+
+        let { data, error } = await supabase
+            .storage
+            .from('results')
+            .createSignedUrl('morfology/'+fileName, 60)
+
+        return data?.signedUrl
+    } catch (error) {
+        console.error(error)
+        return { message: 'something wrong', }
+    }
+}
+
+export async function downloadFile(fileName:string){
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
+    try {
+        const  { data, error } = await supabase
+        .storage
+        .from('results')
+        .download('morfology/'+fileName)
+        console.log('download data')
+        //return data
+    } catch (error) {
+        
+    }
 }

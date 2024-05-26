@@ -9,13 +9,13 @@ import { createClient } from '@/app/utils/supabase/client'
 import { VisitSkeleton } from '../skeletons';
 import { dateFormat } from '@/app/utils/displayDate/dateDisplay';
 import { timeFormat } from '@/app/utils/displayDate/timeDisplay';
-export default function NextVisit({ petId }: { petId: string }) {
+export default function NextVisit({ petId }: { petId: number }) {
     const t = useTranslations('PetForm')
     const [isLoading, setIsLoading] = useState(true)
     const [visits, setVisits] = useState<any>([])
 
     useEffect(() => {
-        const getVisitData = async (petId:string) =>{
+        const getVisitData = async (petId:number) =>{
             const data = await getPetNextVisit(petId)
             setVisits(data? data : [])
             setIsLoading(false)
@@ -45,17 +45,20 @@ export default function NextVisit({ petId }: { petId: string }) {
                             <span className='min-w-[130px] '>{t('date')}:</span> <span className='font-semibold'>{dateFormat(visit.visit_date)}</span>
                         </div>
                         <div className='flex gap-3 mb-3'>
-                            <span className='min-w-[130px] '>{t('hour')}:</span> <span className='font-semibold'>{visit.visit_time}</span>
+                            <span className='min-w-[130px] '>{t('hour')}:</span> <span className='font-semibold'>{visit.visit_time.slice(0, 5) }</span>
+                        </div>
+                        <div className='flex gap-3 mb-3'>
+                            <span className='min-w-[130px] '>{t('subject')}:</span> <span className='font-semibold'>{visit.subject }</span>
                         </div>
                     </React.Fragment>
                 )
 
             })}
 
-            <div className='flex gap-3 mb-3'>
+            {/* <div className='flex gap-3 mb-3'>
                 <span className='min-w-[130px] '>{t('place')}:</span>
                 <span className='font-semibold'>Zasieki 75, 68-343 Zasieki</span>
-            </div>
+            </div> */}
             <div className='flex'>
                 <a className='btn cursor-pointer ml-auto' href="https://goo.gl/maps/5vwZ1Veo9Y9zDGsC9" target="_blank">{t('navigate')}</a>
             </div>

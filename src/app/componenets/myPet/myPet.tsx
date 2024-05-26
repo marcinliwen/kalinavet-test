@@ -8,6 +8,8 @@ import SearchIcon from '@/app/icons/SearchIcon';
 import AddIcon from '@/app/icons/AddIcon';
 import LogOutBtn from '../header/logOutBtn';
 import MyPetTabs from './myPetTabs';
+import { redirect } from 'next/navigation'
+
 //import { getPetNextVisit } from '@/app/[locale]/(dashboard)/dashboard/actions';
 type Pet = {
     birth_date: string | null;
@@ -24,17 +26,17 @@ export default async function MyPet({userId}:{userId:string}) {
     const t = await getTranslations('PetForm')
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
-    const { data, error } = await supabase.from('users_pet').select('*, pets!inner(*)')
+    const { data, error } = await supabase.from('pets').select('*').order('name', {ascending: true})
 
     
     if (error) {
-        return;
+      redirect('/error')
     }
 
     //const { data, error} = await supabase.from('pets_data').select();
 
-    console.log('pet data 2', data && data[0].pets
-    )
+    console.log('pet data 2', data)
+   
     return (
         <div className='container mx-auto py-12 '>
             <div className='grid md:grid-cols-12 w-full gap-8'>

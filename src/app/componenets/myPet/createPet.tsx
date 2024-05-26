@@ -39,7 +39,7 @@ export default function CreatePet({userId}:{userId: string}) {
   const [state, formAction] = useFormState(createPet, initialState);
   return (
       <form action={formAction} className='max-w-[400px] grid' >
-        <input  hidden id={'owner'} className='border rounded-lg p-2' name={'owner'} type="text" defaultValue={userId} />
+        <input  hidden id={'owner_id'} className='border rounded-lg p-2' name={'owner_id'} type="text" defaultValue={userId} />
         
         {petData.map((item: any) => {
           if (item === 'id') {
@@ -73,7 +73,7 @@ export default function CreatePet({userId}:{userId: string}) {
                   >
                     {t(item)} 
                 </label>
-                <select className='border rounded-lg p-2' >
+                <select id={item} name={item}  className='border rounded-lg p-2'  defaultValue={item} >
                   <option></option>
                   <option value={'male'} >{'male'}</option>
                   <option value={'female'}>{'female'}</option>

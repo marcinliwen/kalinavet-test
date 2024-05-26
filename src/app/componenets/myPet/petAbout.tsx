@@ -9,11 +9,12 @@ type Pet = {
     birth_date: Date | null;
     gender: string | null;
     id: number;
-    owner: string | null;
+    owner_id: string | null;
     name: string | null;
     breed: string | null;
     species: string | null;
 };
+
 export default function PetAbout({ pet }: { pet: Pet }) {
 
     const t = useTranslations('PetForm')
@@ -41,7 +42,8 @@ export default function PetAbout({ pet }: { pet: Pet }) {
                                 </form>
                                 <h2 className="text-center mb-1">Edytujesz dane </h2>
                                 <hr className="mb-10 opacity-60" />
-                                <PetEdit petId={pet.id} />
+                                {myModal.current && <PetEdit petId={pet.id} onClick={()=>{myModal.current?.close(), console.log('about click')}} />}
+                                
                             </div>
                         </dialog>
                         <dialog ref={deleteModal} className="modal">
@@ -66,10 +68,10 @@ export default function PetAbout({ pet }: { pet: Pet }) {
                         <span className='min-w-[130px]'>{t('species')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.species}</span>
                     </div>
                     <div className='flex gap-3'>
-                        <span className='min-w-[130px]'>{t('race')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.breed}</span>
+                        <span className='min-w-[130px]'>{t('breed')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.breed}</span>
                     </div>
                     <div className='flex gap-3'>
-                        <span className='min-w-[130px]'>{t('gender')}:</span> <span className='first-letter:uppercase line font-semibold'>{pet.gender}</span>
+                        <span className='min-w-[130px]'>{t('gender')}:</span> <span className='first-letter:uppercase line font-semibold'>{t(pet.gender)}</span>
                     </div>
                     {pet.birth_date && <div className='flex gap-3'>
                         <span className='min-w-[130px]'>{t('birth_date')}:</span> <span className='first-letter:uppercase line font-semibold'>{dateFormat(pet.birth_date)}</span>

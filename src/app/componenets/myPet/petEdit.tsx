@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/app/utils/supabase/client'
 import { useTranslations } from 'next-intl'
 import {updatePet} from '@/app/[locale]/(dashboard)/dashboard/actions';
+import {forwardRef} from 'react';
 
 type Pet = {
-  birth_date: string | null;
+  birth_date: Date | null;
   gender: string | null;
   id: number;
-  owner: string | null;
-  pet_name: string | null;
-  race: string | null;
+  owner_id: string | null;
+  name: string | null;
+  breed: string | null;
   species: string | null;
 }[];
 
@@ -19,12 +20,12 @@ const initialState = {
   message: "",
 };
 
-function EditButton(){
+function EditButton({onClick}:{onClick:()=>void}){
   const { pending } = useFormStatus();
-  return(<button type='submit' className='btn-ui ml-auto' aria-disabled={pending}>Zapisz</button>)
+  return(<button type='submit' onClick={()=>{onClick(), console.log('click')}} className='btn-ui ml-auto' aria-disabled={pending}>Zapisz</button>)
 }
 
-export default function PetEdit({ petId }: { petId: number }) {
+export default function PetEdit({ petId, onClick }: { petId: number, onClick:()=>void }) {
   const t = useTranslations('PetForm');
   const supabase = createClient()
 
@@ -33,7 +34,7 @@ export default function PetEdit({ petId }: { petId: number }) {
 
   useEffect(() => {
     const fetchMyPet = async () => {
-      const { data, error } = await supabase.from('user_pet').select().eq('id', petId)
+      const { data, error } = await supabase.from('pets').select('name, species, breed, gender, birth_date,  owner_id, id').eq('id', petId)
       setMyPet(data ? data : [])
       setIsLoading(false)
     }
@@ -41,10 +42,10 @@ export default function PetEdit({ petId }: { petId: number }) {
     fetchMyPet()
   }, [])
 
+  console.log('myPet', myPet)
   const petObject = myPet[0]
 
   type PetData = typeof petObject;
-  type PetDataValues = keyof Omit<PetData, 'owner'>;
   const petData = Object.keys(petObject ? petObject : {});
 
   const [state, formAction] = useFormState(updatePet, initialState);
@@ -67,7 +68,6 @@ export default function PetEdit({ petId }: { petId: number }) {
                     {t(item)} 
                 </label>
                 <select id={item} name={item} className='border rounded-lg p-2' defaultValue={item} >
-                <option></option>
                   <option value={'pies'} >{'pies'}</option>
                   <option value={'kot'}>{'kot'}</option>
                 </select>
@@ -90,7 +90,7 @@ export default function PetEdit({ petId }: { petId: number }) {
               </div>
             )
           }
-          else if (item !== 'owner'){
+          else if (item !== 'owner_id'){
             return (
               <div key={item} className='mb-4 grid md:grid-cols-2 gap-2 items-center w-full'>
                 <label 
@@ -109,8 +109,8 @@ export default function PetEdit({ petId }: { petId: number }) {
             )}
          
         })}
-
-<EditButton />
-      </form>
+{/* <button type='submit' onClick={()=>{onClick(), console.log('click')}} className='btn-ui ml-auto' >Zapisz</button>
+ */}<EditButton onClick={()=>onClick()} />
+       </form>
   )
 }

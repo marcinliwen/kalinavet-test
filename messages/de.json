@@ -104,6 +104,8 @@
     "species":"Gatunek",
     "breed":"Rasa",
     "gender":"Płeć",
+    "female": "Weiblich",
+    "male": "Samiec",
     "next_appointment":"Następna wizyta",
     "last_appointment":"Ostatnia wizyta",
     "book_appointment":"Umów wizytę",
@@ -111,7 +113,8 @@
     "date": "Data",
     "hour":"Godzina",
     "place": "Miejsce",
-    "navigate":"Nawiguj"
+    "navigate":"Nawiguj",
+    "subject":"Gegenstand"
   },
   "Dashboard":{
     "login":"Du bist eingeloggt",

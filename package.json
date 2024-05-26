@@ -21,8 +21,6 @@
     "eslint-config-next": "^13.5.1",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
-    "next": "^14.2.3",
-    "next-intl": "^3.3.2",
     "next": "^14.0.4",
     "next-intl": "^3.10.0",
     "postcss": "8.4.29",
@@ -36,6 +34,6 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
-    "daisyui": "^4.9.0"
+    "daisyui": "^4.11.1"
   }
 }

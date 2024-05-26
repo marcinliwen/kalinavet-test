@@ -210,3 +210,16 @@ body {
     right: 10px;
 }
 }
+
+.tab div {
+  display: none;
+}
+
+.tab div:target,
+.tab div:last-of-type {
+  display: block;
+}
+
+.tab div:target ~ div {
+  display:none;
+}
