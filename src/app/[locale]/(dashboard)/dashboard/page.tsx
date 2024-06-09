@@ -16,9 +16,8 @@ export default async function PrivatePage() {
   }
 
   return(
-  <main className=''>
+  
   <MyPet userId={data.user.id}/>
-  <ProfileData  />
-  </main>
+  
 )
 }

@@ -10,7 +10,7 @@ export default function DashboardLayout({
       <div className='container mx-auto py-12 '>
       <div className='grid md:grid-cols-12 w-full gap-8'>
           <div className=' bg-base-200 max-w-56 rounded-box col-span-2 px-6 py-4 grid'>
-             <DashboardNavigation />
+              <DashboardNavigation />
               <div className='mt-auto text-center pb-4'>
                   <LogOutBtn />
               </div>

@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { isLogged } from "./actions";
 import { cookies } from 'next/headers'
 import { createClient } from '@/app/utils/supabase/server'
-
+import ResetPasswordForm from "@/app/componenets/resetPassword/resetForm";
+import { updatePassword } from "./actions";
 export default async  function ResetPasswordPage() {
     const cookieStore = cookies()
   const supabase = createClient(cookieStore)
@@ -27,7 +28,9 @@ export default async  function ResetPasswordPage() {
       <div className="container flex flex-col justify-center">
         <div className='card bg-white  border max-w-[450px] shadow-xl'>
           <div className='card-body'>
-         <form className='w-full'>
+            {data?.user?.email &&  <ResetPasswordForm  user_email={data?.user?.email}/>}
+           
+         {/* <form className='w-full'>
               <h2 className='text-center text-lg font-semibold mb-2'>Podaj nowe hasło</h2>
               <p className='text-center'></p>
               <div className='mb-4 grid w-full'>
@@ -62,7 +65,7 @@ export default async  function ResetPasswordPage() {
                 <button  className='btn-ui h-[42px]'>Zapisz nowe hasło</button>
               </div>
 
-            </form> 
+            </form> */} 
             {/* <hr className='my-8' />
             <div className='flex flex-wrap gap-2 justify-center items-center'>
               <span>masz już konto? </span> <Link href="/login" className='font-semibold uppercase text-xs hover:underline'>Zaloguj się!</Link>

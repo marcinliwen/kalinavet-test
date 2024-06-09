@@ -20,6 +20,12 @@
   h2 {
     @apply mb-8 text-3xl;
   }
+  button:disabled {
+    background-color: rgb(202, 202, 202);
+  }
+  button:disabled:hover{
+    box-shadow: none;
+  }
 }
 
 body {
