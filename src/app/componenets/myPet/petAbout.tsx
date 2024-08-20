@@ -40,7 +40,13 @@ export default function PetAbout({ pet }: { pet: Pet }) {
                         </form>
                         <h2 className="text-center mb-1">Edytujesz dane </h2>
                         <hr className="mb-10 opacity-60" />
-                        {myModal.current && <PetEdit petId={pet.id} onClick={() => { myModal.current?.close(), console.log('about click') }} />}
+                        <PetEdit
+                            petId={pet.id}
+                            onClick={() => {
+                                myModal.current?.close(),
+                                    console.log('about click')
+                            }}
+                        />
 
                     </div>
                 </dialog>

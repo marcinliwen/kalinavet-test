@@ -3,8 +3,13 @@ import { createClient } from '@/app/utils/supabase/server'
 import { cookies } from 'next/headers'
 import { revalidatePath } from 'next/cache'
 import {getTranslations} from 'next-intl/server';
-import createPet from '@/app/[locale]/(dashboard)/dashboard/actions';
+import {createPet} from '@/app/[locale]/(dashboard)/dashboard/actions';
+import { useFormState } from 'react-dom';
 
+
+const initialState = {
+    message: "",
+  };
 
 
 export default async function MyPetForm() {
@@ -20,12 +25,12 @@ export default async function MyPetForm() {
     type PetData = typeof petObject;
     type PetDataValues = keyof Omit<PetData, 'owner'>;
     const petData = Object.keys(petObject);
-
+    const [state, formAction] = useFormState(createPet, initialState);
 
     return (
         <div className='container py-14'>
             <h2>Edytuj dane Twojego pupila</h2>
-            <form action={createPet} className='max-w-[400px] grid'>
+            <form action={formAction} className='max-w-[400px] grid'>
                 {petData.map((item: string) => {
                     if (item === 'id') {
                         return (

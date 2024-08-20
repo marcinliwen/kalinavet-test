@@ -24,7 +24,7 @@ export default function PetResults({pet_id}:{pet_id:number}) {
 
     }, [pet_id])
 
-    console.log('results', results)
+    //console.log('results', results)
     return (
         <>
             <div className='flex gap-3 items-start'>

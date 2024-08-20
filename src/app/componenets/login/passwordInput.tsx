@@ -1,11 +1,9 @@
 'use client'
 
 import { useRef, useState } from "react"
-type Error = {
-    password?: string[]
-}
-export default function PasswordInput({error}:{error:Error}) {
-    console.log('error password', error)
+
+export default function PasswordInput({error}:{error?: string[]|null}) {
+    //console.log('error password', error)
     const toggleVisibility = useRef<HTMLInputElement>(null);
 
     const [isVisible, setTogglePassword] = useState<boolean>(false);
@@ -29,7 +27,7 @@ export default function PasswordInput({error}:{error:Error}) {
                     }
                 </button>
             </div>
-            <span className={`text-xs font-semibold text-neutral-content ${error && 'text-red-500'}`}>Hasło musi miec co najmniej 8 znaków.</span>
+            {error && ( <span className={`text-xs font-semibold  text-red-600 pl-2`}>{error}</span>)}
         </div>
     )
 }

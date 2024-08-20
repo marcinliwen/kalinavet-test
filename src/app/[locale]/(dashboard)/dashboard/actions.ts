@@ -20,7 +20,7 @@ export async function updatePet(prevState: {
     if (!rawFormData.id) {
         return { message: 'invalid data' }
     }
-    console.log('rawFormData', rawFormData)
+    //console.log('rawFormData', rawFormData)
     try {
         await supabase
             .from('pets')
@@ -44,7 +44,7 @@ export async function updatePet(prevState: {
 export async function createPet(prevState: {
     message: string;
 }, formData: FormData) {
-    console.log('createpet', formData)
+    //console.log('createpet', formData)
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
     const rawFormData = {
@@ -72,16 +72,16 @@ export async function createPet(prevState: {
                 owner_id: formData.get('owner_id') as string,
             })
         revalidatePath('/dashboard');
-        console.log('success')
+       // console.log('success')
         return { message: 'Success' }
     } catch (error) {
-        console.log('error', error)
+        //console.log('error', error)
         return { message: 'something wrong' }
     }
 }
 
 export async function deletePet(petId: number) {
-    console.log('petId', petId)
+    //console.log('petId', petId)
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
     try {
@@ -138,7 +138,7 @@ export async function getResultById(pet_id: number) {
             .select('*')
             .eq('pet_id', pet_id)
 
-        console.log('results', data)
+        //console.log('results', data)
         return data
     } catch (error) {
         console.error(error)
@@ -171,7 +171,7 @@ export async function downloadFile(fileName:string){
         .storage
         .from('results')
         .download('morfology/'+fileName)
-        console.log('download data')
+        //console.log('download data')
         //return data
     } catch (error) {
         

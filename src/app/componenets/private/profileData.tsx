@@ -21,7 +21,7 @@ export default async function ProfileData() {
     if (error) {
         return;
     }
-    console.log('data.profile', data)
+    //console.log('data.profile', data)
     return (
         <>
         </>

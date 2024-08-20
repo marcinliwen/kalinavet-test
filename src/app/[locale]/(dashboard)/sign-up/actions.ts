@@ -14,30 +14,44 @@ export type SignUpData = {
     email: string,
     password: string
 }
-export async function signup(formData: SignUpData) {
+export async function signup(prevState: any, formData: FormData) {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
 
-    console.log('formData', formData)
+    //console.log('formData', formData)
     // type-casting here for convenience
     // in practice, you should validate your inputs
-    const {email, password} = SignUpFormSchema.parse({
-        email: formData.email,
-        password: formData.password
+    const singUpValidation = SignUpFormSchema.safeParse({
+        email: formData.get('email') as string,
+        password: formData.get('password') as string
     })
-    const data = {
+    if(!singUpValidation.success){
+        return {
+            error: singUpValidation.error.flatten().fieldErrors
+        }
+    }
+   /*  const data = {
         email: email as string,
         password: password as string,
     }
+ */
 
-    const { error } = await supabase.auth.signUp(data)
-
-    if (error) {
-        redirect('/error')
+    let currentEmail = formData.get('email') as string;
+    const {error, count} = await supabase.from('person').select('*', {count: 'exact', head: true}).eq('email', currentEmail)
+    console.log('count', count)
+    if(count && count > 0){
+        return{
+            error: "Ten email jest już w naszej bazie"
+        }
     }
+    // const { error } = await supabase.auth.signUp(data)
+//console.log('auth error', error)
+    /* if (error) {
+        redirect('/error')
+    } */
 
-    revalidatePath('/dashboard', 'layout')
-    redirect('/dashboard')
+    //revalidatePath('/dashboard', 'layout')
+    //redirect('/dashboard')
 }
 export async function isLogged(){
     const cookieStore = cookies()

@@ -35,7 +35,7 @@ export default async function MyPet({userId}:{userId:string}) {
 
     //const { data, error} = await supabase.from('pets_data').select();
 
-    console.log('pet data 2', data)
+    //console.log('pet data 2', data)
    
     return (
        <>

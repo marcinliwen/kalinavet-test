@@ -1,5 +1,5 @@
 import DashboardHeader from "@/app/componenets/header/DashboardHeader";
-
+import { Toaster } from "react-hot-toast";
 export default function DashboardLayout({
     children
   }: {
@@ -9,6 +9,7 @@ export default function DashboardLayout({
         <>
         <DashboardHeader/>
         {children}
+        <Toaster/>
         </>
     )
   }

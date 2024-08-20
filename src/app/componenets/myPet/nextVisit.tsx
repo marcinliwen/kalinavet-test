@@ -66,7 +66,7 @@ export default function NextVisit({ petId }: { petId: number }) {
             :
             <div className='grid gap-8'>
             <p>Nie masz jeszcze zaplanowanych wizyt</p>
-            <Link href="/kontakt" className='btn-ui  max-w-max ml-auto'>Umów się na wizytę</Link>
+            <Link href="/kontakt" className='btn-ui  max-w-max ml-auto'>Umów wizytę</Link>
             </div>
 }
             </React.Fragment>

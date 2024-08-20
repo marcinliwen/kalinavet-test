@@ -17,7 +17,7 @@ const [file, setFileUrl] = useState<any>(null)
 
     }, [fileName])
 
-    console.log('file', file)
+    //console.log('file', file)
     if(!file){
         return
     }

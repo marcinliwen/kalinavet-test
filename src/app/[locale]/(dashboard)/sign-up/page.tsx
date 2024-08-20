@@ -11,7 +11,7 @@ export default  function SignUpPage() {
   //const is_logged = await isLogged();
 
   return (
-    <section className='grid grid-cols-1 md:grid-cols-2 h-screen bg-blue-500 text-black ' >
+    <section className='grid grid-cols-1 md:grid-cols-2 min-h-screen py-20 bg-blue-500 text-black ' >
       <div className='h-full hidden md:block relative'>
         <Image
           alt="hero"

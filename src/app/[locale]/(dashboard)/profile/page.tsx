@@ -1,36 +1,26 @@
 
+import EditProfileForm from "@/app/componenets/profile/EditProfileForm"
+import ProfileCard from "@/app/componenets/profile/ProfileCard";
 import EditIcon from "@/app/icons/EditIcon"
+import { createClient } from "@/app/utils/supabase/server"
+import { cookies } from 'next/headers';
+import Link from "next/link";
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+
+    const cookieStore = cookies()
+    const supabase = createClient(cookieStore)
+    const { data: { user } } = await supabase.auth.getUser()
+
+
     return (
-        <div className='col-span-10 rounded-xl bg-base-200 px-6 py-4'>
+        <div className='md:col-span-6 rounded-xl bg-base-200 px-6 py-4'>
             <div className='w-full'>
-
+                <div className="flex justify-between items-center">
                 <h3 className='font-semibold text-2xl first-letter:uppercase mb-4'>{'Profil'}</h3>
-
-                <div className='card bg-base-100  border'>
-                    <div className='card-body'>
-                        <div className='flex gap-3 items-start'>
-                            <h3 className='font-semibold text-2xl mb-4'>{'Name Surname '}</h3>
-                            <div className="dropdown dropdown-bottom dropdown-end ml-auto">
-                                <div tabIndex={0} role="button" className="btn btn-ghost min-h-1 h-8 px-1"><EditIcon /></div>
-                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-22">
-                                    <li><a className='' >Edytuj</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className='flex gap-3'>
-                            <span className='min-w-[130px]'>{'Adres'}:</span> <span className='first-letter:uppercase line font-semibold'>{'adres'}</span>
-                        </div>
-                        <div className='flex gap-3'>
-                            <span className='min-w-[130px]'>{'Kod pocztowy'}:</span> <span className='first-letter:uppercase line font-semibold'>{'miasto'}</span>
-                        </div>
-                        <div className='flex gap-3'>
-                            <span className='min-w-[130px]'>{'mail'}:</span> <span className='first-letter:uppercase line font-semibold'>{'mail@mail.com'}</span>
-                        </div>
-                    </div>
+                <Link className="btn btn-ghost btn-sm" href="/edit-profile">{'Edytuj ->'}</Link>
                 </div>
+                <ProfileCard userId={user?.id} />
             </div>
         </div>
     )

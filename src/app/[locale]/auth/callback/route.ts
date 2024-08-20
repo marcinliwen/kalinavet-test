@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
   redirectTo.searchParams.delete('code')
 
   if (code) {
-    console.log('code', code)
+    //console.log('code', code)
     const supabase = createClient(cookieStore)
     const {error} = await supabase.auth.exchangeCodeForSession(code)
 

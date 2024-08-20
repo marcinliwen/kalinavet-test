@@ -37,13 +37,13 @@ results();
     },[])
 
     const [tab, setTab] = React.useState<string>('my_tabs_0');
-    console.log('tab', tab)
+    //console.log('tab', tab)
     const onOptionChange = (e: any) => {
         setTab(e.target.value)
     }
     const t = useTranslations('PetForm')
     return (
-        <div className='col-span-10 rounded-xl bg-base-200 px-6 py-4'>
+        <div className='col-span-6 rounded-xl bg-base-200 px-6 py-4'>
             <div className='w-full'>
                 <div role="tablist" className="tabs tabs-lifted ">
                    {myPets?.map((pet, index: number) => {

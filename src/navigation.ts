@@ -8,6 +8,7 @@ export const pathnames = {
   // single external path can be provided.
   '/': '/',
   '/kontakt': '/kontakt',
+  '/dashboard' : '/dashboard',
 
   // If locales use different paths, you can
   // specify each external path per locale.

@@ -8,11 +8,15 @@ import Phone from "@/app/icons/Phone";
 import Doghome from "@/../public/doghome.png";
 import DogHero2 from "@/../public/dog-hero-2.png"
 import MobileHero from "@/../public/mobile-hero.png"
+import Head from "next/head";
+import Script from "next/script";
 
 export default function HomeHero() {
   const t = useTranslations('Common');
   const h = useTranslations('HomePage');
   return (
+    
+    
     <div className="bg-ui-light  lg:pb-0  w-full bg-gradient h-screen lg:h-[calc(100vh_-_120px)] flex relative">
       <div className='container'>
         <div className="flex flex-col h-full  mt-auto">

@@ -1,19 +1,22 @@
 import Link from "next/link"
+import NavLink from "./navLink"
 export default function DashboardNavigation(){
+
     return(
         <nav>
-             <ul className='menu  text-center'>
-                  <li className='text-center'>
-                      <Link href={'/dashboard'}>Zwierzęta</Link>
+             <ul className='menu text-center'>
+                  <li className='text-center mb-2'>
+                    <NavLink title={"Moje zwierzęta"} urlName="dashboard"/>
                   </li>
-                  <li>
-                      <Link href={'/gabinet'}> Gabinet</Link>
+                  <li className="mb-2">
+                  <NavLink title={"Gabinet"} urlName="gabinet"/>
+                     
                   </li>
-                  <li>
-                      <Link href={'/profile'}>Profil</Link>
+                  <li className="mb-2">
+                  <NavLink title={"Profil"} urlName="profile"/>
                   </li>
-                  <li>
-                      <Link href={'/settings'}>Ustawienia</Link>
+                  <li className="mb-2">
+                  <NavLink title={"Ustawienia"} urlName="settings"/>
                   </li>
               </ul>
         </nav>

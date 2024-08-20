@@ -9,7 +9,7 @@ import { createClient } from '@/app/utils/supabase/client'
 import { createClient as createServerClient } from '@/app/utils/supabase/server'
 export async function getUserSession(code: any) {
     const supabase = createClient();
-    console.log('code link', code)
+    //console.log('code link', code)
     try {
         const userData = supabase.auth.exchangeCodeForSession(code)
         return userData
@@ -25,7 +25,7 @@ export async function isLogged() {
 
     supabase.auth.onAuthStateChange((event, session) => {
         if (event === 'PASSWORD_RECOVERY') {
-            console.log('PASSWORD_RECOVERY', session)
+            //console.log('PASSWORD_RECOVERY', session)
             // show screen to update user's password
             //showPasswordResetScreen(true)
         }
@@ -90,12 +90,11 @@ export async function updatePassword(prevState: any, formData: FormData) {
    if(error){
     console.error(error)
    }
-   if(!error && data){
-    console.log('success', data)
+    //console.log('success', data)
     revalidatePath(`/${locale}/reset-password`, 'layout')
+    await supabase.auth.signOut()
     redirect('/login')
     return{
         success: 'Hasło zostało pomyślnie zmienione'
     }
-   }
 }

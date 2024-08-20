@@ -9,13 +9,12 @@ import ResetPasswordForm from "@/app/componenets/resetPassword/resetForm";
 import { updatePassword } from "./actions";
 export default async  function ResetPasswordPage() {
     const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
+    const supabase = createClient(cookieStore)
+    const { data, error } = await supabase.auth.getUser()
   
-  const { data, error } = await supabase.auth.getUser()
-  
-  console.log('user', data)
+  //console.log('user', data)
   return (
-    <section className='grid grid-cols-1 md:grid-cols-2 h-screen bg-blue-500 text-black ' >
+    <section className='grid grid-cols-1 md:grid-cols-2 min-h-screen py-20 bg-blue-500 text-black ' >
       <div className='h-full hidden md:block relative'>
         <Image
           alt="hero"

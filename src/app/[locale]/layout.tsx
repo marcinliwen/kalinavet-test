@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Header from '../componenets/header'
 
 import { NextIntlClientProvider, useMessages } from 'next-intl';
+import {getMessages} from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Script from 'next/script';
@@ -87,7 +88,7 @@ const localBussiness =
 
 
 
-export default  function RootLayout({
+export default async  function RootLayout({
   children, params: { locale }
 }: {
   children: React.ReactNode, params: any
@@ -95,7 +96,7 @@ export default  function RootLayout({
 
 
   if (!locales.includes(locale as any)) notFound();
-  const messages = useMessages();
+  const messages = await getMessages();
 
     
   return (

@@ -119,5 +119,10 @@
   "Dashboard":{
     "login":"Jesteś zalogowany",
     "dashboard": "Panel klienta"
+  },
+  "Settings":{
+    "new_password": "nowe hasło",
+    "confirm_password": "powtórz hasło",
+    "save":"Zapisz"
   }
 }

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/app/utils/supabase/client'
 import { useTranslations } from 'next-intl'
 import {updatePet} from '@/app/[locale]/(dashboard)/dashboard/actions';
-import {forwardRef} from 'react';
 
 type Pet = {
   birth_date: Date | null;
@@ -42,7 +41,7 @@ export default function PetEdit({ petId, onClick }: { petId: number, onClick:()=
     fetchMyPet()
   }, [])
 
-  console.log('myPet', myPet)
+  //console.log('myPet', myPet)
   const petObject = myPet[0]
 
   type PetData = typeof petObject;

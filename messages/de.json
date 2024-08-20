@@ -119,5 +119,10 @@
   "Dashboard":{
     "login":"Du bist eingeloggt",
     "dashboard":"Dashboard"
+  },
+  "Settings":{
+    "new_password": "Ein neues Passwort",
+    "confirm_password": "Passwort wiederholen",
+    "save": "Änderungen speichern"
   }
 }

@@ -46,7 +46,7 @@ const FormSchema = z.object({
 
 export async function sendQuestionform(prevState: State, formData: FormData) {
 
-    console.log('email sended')
+    //console.log('email sended')
     
     const t = await getTranslations('FAQ')
     const validatefields = FormSchema.safeParse({
