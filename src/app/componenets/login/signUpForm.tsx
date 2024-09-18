@@ -38,6 +38,8 @@ export default function SignUpForm() {
   return (
   <form action={formAction}>
     <h2 className='text-center text-lg font-semibold mb-2'>Witaj w panelu klienta Gabinetu Weterynaryjnego KalinaVet! </h2>
+    {state?.message ?  <div className="text-green-600 text-center font-semibold">{state?.message}</div>
+    : <>
     <p className='text-center mb-8'>Utwórz darmowe konto i bądź na bierząco ze zdrowiem swojego pupila.</p>
     
     
@@ -52,6 +54,8 @@ export default function SignUpForm() {
      <Submit />
     </div>
     {state && typeof state.error === 'string' && (<div className="text-red-500 text-xs text-center font-semibold mt-5">{state.error}</div>)}
+    </>}
+    
   </form>)
 }
 

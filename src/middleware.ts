@@ -28,5 +28,6 @@ export const config = {
   matcher: [
       '/',
       '/(de|pl)/:path*',
+      '/((?!api|_next|_vercel|.*\\..*).*)'
   ]
 };

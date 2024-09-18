@@ -58,8 +58,8 @@ export default function CreatePet({userId}:{userId: string}) {
                 </label>
                 <select id={item} name={item} className='border rounded-lg p-2' defaultValue={item} >
                   <option></option>
-                  <option value={'pies'} >{'pies'}</option>
-                  <option value={'kot'}>{'kot'}</option>
+                  <option value={'cat'} >{'kot'}</option>
+                  <option value={'dog'}>{'pies'}</option>
                 </select>
               </div>
             )

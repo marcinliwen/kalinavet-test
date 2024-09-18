@@ -10,8 +10,7 @@ export default async function ProfilePage() {
 
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
-    const { data: { user } } = await supabase.auth.getUser()
-
+    const { data: { user }, error } = await supabase.auth.getUser()
 
     return (
         <div className='md:col-span-6 rounded-xl bg-base-200 px-6 py-4'>
@@ -20,7 +19,7 @@ export default async function ProfilePage() {
                 <h3 className='font-semibold text-2xl first-letter:uppercase mb-4'>{'Profil'}</h3>
                 <Link className="btn btn-ghost btn-sm" href="/edit-profile">{'Edytuj ->'}</Link>
                 </div>
-                <ProfileCard userId={user?.id} />
+                <ProfileCard userId={user?.id} /> 
             </div>
         </div>
     )

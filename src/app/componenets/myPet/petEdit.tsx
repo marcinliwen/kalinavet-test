@@ -67,8 +67,8 @@ export default function PetEdit({ petId, onClick }: { petId: number, onClick:()=
                     {t(item)} 
                 </label>
                 <select id={item} name={item} className='border rounded-lg p-2' defaultValue={item} >
-                  <option value={'pies'} >{'pies'}</option>
-                  <option value={'kot'}>{'kot'}</option>
+                  <option value={'dog'} >{'pies'}</option>
+                  <option value={'cat'}>{'kot'}</option>
                 </select>
               </div>
             )

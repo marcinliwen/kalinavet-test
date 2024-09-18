@@ -24,8 +24,9 @@ export default async function ProfileCard({ userId }: { userId: string | undefin
     const supabase = createClient(cookieStore)
 
     let { data: person, error} = await supabase
-        .from('person').select("*").eq('id', userId)
+        .from('person').select("*").eq('id', userId as string)
 
+    console.log('profile error', error)
     if (error) {
         redirect('/error')
     }

@@ -11,7 +11,7 @@ import MyPetTabs from './myPetTabs';
 import { redirect } from 'next/navigation'
 
 //import { getPetNextVisit } from '@/app/[locale]/(dashboard)/dashboard/actions';
-type Pet = {
+/* type Pet = {
     birth_date: string | null;
     gender: {male: string, femaile: string} | null;
     id: number;
@@ -20,13 +20,13 @@ type Pet = {
     race: string | null;
     species: string | null;
    // visits: any
-}[];
+}[]; */
 
 export default async function MyPet({userId}:{userId:string}) {
     const t = await getTranslations('PetForm')
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
-    const { data, error } = await supabase.from('pets').select('*').order('name', {ascending: true})
+    const { data, error } = await supabase.from('pets').select('*').eq('owner_id', userId).order('name', {ascending: true})
 
     
     if (error) {

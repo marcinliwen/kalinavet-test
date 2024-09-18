@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 import { getLocale } from 'next-intl/server'
 
 import { createClient } from '@/app/utils/supabase/server'
-import {z} from 'zod';
+import { z } from 'zod';
 
 import { SignUpFormSchema } from '@/lib/validationSignUpFormSchema' 
 
@@ -37,21 +37,27 @@ export async function signup(prevState: any, formData: FormData) {
  */
 
     let currentEmail = formData.get('email') as string;
-    const {error, count} = await supabase.from('person').select('*', {count: 'exact', head: true}).eq('email', currentEmail)
+    let currentPassword = formData.get('password') as string;
+    const {count} = await supabase.from('person').select('*', {count: 'exact', head: true}).eq('email', currentEmail)
     console.log('count', count)
     if(count && count > 0){
         return{
             error: "Ten email jest już w naszej bazie"
         }
     }
-    // const { error } = await supabase.auth.signUp(data)
-//console.log('auth error', error)
-    /* if (error) {
-        redirect('/error')
-    } */
 
-    //revalidatePath('/dashboard', 'layout')
-    //redirect('/dashboard')
+     const { data, error } = await supabase.auth.signUp({ email: currentEmail, password:currentPassword  })
+
+     console.log('error', error)
+    if (error) {
+        redirect('/error')
+    } 
+
+    revalidatePath('/sign-up', 'layout')
+    return{
+        message: 'Utworzyłeś nowe konto, potwierdź teraz swój mail klikając w link w wiadomości, którą wysłalismy do Ciebie'
+    }
+    //redirect('/')
 }
 export async function isLogged(){
     const cookieStore = cookies()
