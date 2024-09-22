@@ -7,6 +7,7 @@ import { cookies } from 'next/headers'
 import { createClient } from '@/app/utils/supabase/server'
 import ResetPasswordForm from "@/app/componenets/resetPassword/resetForm";
 import { updatePassword } from "./actions";
+
 export default async  function ResetPasswordPage() {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)

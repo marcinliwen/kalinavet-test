@@ -94,7 +94,7 @@ export async function updatePassword(prevState: any, formData: FormData) {
     revalidatePath(`/${locale}/reset-password`, 'layout')
     await supabase.auth.signOut()
     redirect('/login')
-    return{
+    /* return{
         success: 'Hasło zostało pomyślnie zmienione'
-    }
+    } */
 }

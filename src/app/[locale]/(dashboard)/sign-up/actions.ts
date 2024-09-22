@@ -46,7 +46,8 @@ export async function signup(prevState: any, formData: FormData) {
         }
     }
 
-     const { data, error } = await supabase.auth.signUp({ email: currentEmail, password:currentPassword  })
+     const { data, error } = await supabase.auth.signUp({ email: currentEmail, password:currentPassword
+    })
 
      console.log('error', error)
     if (error) {
