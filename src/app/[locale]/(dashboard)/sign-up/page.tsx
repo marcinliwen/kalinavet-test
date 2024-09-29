@@ -25,10 +25,7 @@ export default  function SignUpPage() {
         <div className='card bg-white  border max-w-[450px] shadow-xl'>
           <div className='card-body'>
             <SignUpForm />
-            <hr className='my-8' />
-            <div className='flex flex-wrap gap-2 justify-center items-center'>
-              <span>masz już konto? </span> <Link href="/login" className='font-semibold uppercase text-xs hover:underline'>Zaloguj się!</Link>
-            </div>
+           
           </div>
         </div>
 

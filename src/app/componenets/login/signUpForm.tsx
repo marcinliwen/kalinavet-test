@@ -6,6 +6,7 @@ import { signup, type SignUpData } from "@/app/[locale]/(dashboard)/sign-up/acti
 import { z } from 'zod';
 import { useTransition } from "react";
 import PasswordInput from "./passwordInput";
+import Link from "next/link";
 
 export default function SignUpForm() {
   const [isPending, startTransition] = useTransition();
@@ -36,6 +37,7 @@ export default function SignUpForm() {
 
   //console.log('formError', formError)
   return (
+    <>
   <form action={formAction}>
     <h2 className='text-center text-lg font-semibold mb-2'>Witaj w panelu klienta Gabinetu Weterynaryjnego KalinaVet! </h2>
     {state?.message ?  <div className="text-green-600 text-center font-semibold">{state?.message}</div>
@@ -56,7 +58,13 @@ export default function SignUpForm() {
     {state && typeof state.error === 'string' && (<div className="text-red-500 text-xs text-center font-semibold mt-5">{state.error}</div>)}
     </>}
     
-  </form>)
+  </form>
+   <hr className='my-8' />
+   <div className='flex flex-wrap gap-2 justify-center items-center'>
+     <span>masz już konto? </span> <Link href="/login" className='font-semibold uppercase text-xs hover:underline'>Zaloguj się!</Link>
+   </div>
+   </>
+)
 }
 
 function Submit() {

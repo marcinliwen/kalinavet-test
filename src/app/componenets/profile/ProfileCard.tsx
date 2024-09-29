@@ -36,7 +36,7 @@ export default async function ProfileCard({ userId }: { userId: string | undefin
     }
     //console.log('person', person[0])
 
-    let profile = person[0]
+    let [profile] = person //destructuring array
 
     return (
         <div className='card bg-base-100  border'>

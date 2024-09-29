@@ -45,6 +45,7 @@ results();
     return (
         <div className='col-span-6 rounded-xl bg-base-200 px-6 py-4'>
             <div className='w-full'>
+            <h3 className='font-semibold text-2xl first-letter:uppercase mb-4'>{"Moje zwierzęta"}</h3>
                 <div role="tablist" className="tabs tabs-lifted ">
                    {myPets?.map((pet, index: number) => {
                         return (

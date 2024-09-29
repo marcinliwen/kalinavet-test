@@ -6,7 +6,10 @@ export default function DashboardNavigation(){
         <nav>
              <ul className='menu text-center'>
                   <li className='text-center mb-2'>
-                    <NavLink title={"Moje zwierzęta"} urlName="dashboard"/>
+                    <NavLink title={"Dashboard"} urlName="dashboard"/>
+                  </li>
+                  <li className='text-center mb-2'>
+                    <NavLink title={"Moje zwierzęta"} urlName="zwierzenta"/>
                   </li>
                   <li className="mb-2">
                   <NavLink title={"Gabinet"} urlName="gabinet"/>

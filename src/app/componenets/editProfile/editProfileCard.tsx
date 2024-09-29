@@ -36,7 +36,8 @@ export default async function EditProfileCard({ userId }: { userId: string | und
     }
     //console.log('person', person[0])
 
-    let profile = person[0]
+    const [ profile ] = person;//destructuring array
+    //let profile = person[0]
 
     return (
         <div className="w-full">

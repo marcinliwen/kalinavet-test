@@ -57,8 +57,8 @@ export async function signup(prevState: any, formData: FormData) {
     revalidatePath('/sign-up', 'layout')
     return{
         message: 'Utworzyłeś nowe konto, potwierdź teraz swój mail klikając w link w wiadomości, którą wysłalismy do Ciebie'
-    }
-    //redirect('/')
+    } 
+    //redirect('/dashboard')
 }
 export async function isLogged(){
     const cookieStore = cookies()

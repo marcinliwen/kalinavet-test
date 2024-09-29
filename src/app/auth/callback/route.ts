@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   
   const { searchParams } = new URL(req.url)
   const code = searchParams.get('code')
-  const next = searchParams.get('next') ?? '/reset-password'
+  const next = searchParams.get('next') ?? '/dashboard'
   const redirectTo = req.nextUrl.clone()
   redirectTo.pathname = next
   redirectTo.searchParams.delete('code')

@@ -10,7 +10,7 @@ type User_Roles = {
 }
 const PUBLIK_ROUT = ['/login', '/sign-up', '/password', '/reset-password', '/uslugi', '/porady', '/o-nas', '/kontakt', '/pytania']
 const ROOT = ['/', '/pl', '/de'];
-const AUTH_ROUT = ['/login', '/sign-up', '/reset-password']
+const AUTH_ROUT = ['/login', '/sign-up']
 const ADMIN = ['/admin']
 export async function updateSession(
   request: NextRequest,

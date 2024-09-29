@@ -20,7 +20,7 @@ export default async function MyPetForm() {
     if (error) {
         return;
     }
-    const petObject = data[0]
+    const [petObject] = data; //destructuring array
 
     type PetData = typeof petObject;
     type PetDataValues = keyof Omit<PetData, 'owner'>;
